@@ -1,0 +1,47 @@
+************************************
+Query 1:
+************************************
+SELECT SUM	(CopiesPurchased)
+FROM		MediaBought
+
+************************************
+Query 2:
+************************************
+
+CREATE VIEW CreatedAllMedia AS
+	(
+		SELECT	Books.CreatedBy
+		FROM	Books
+	)
+	INTERSECT
+	(
+		SELECT	Movies.CreatedBy
+		FROM	Movies
+	)
+	INTERSECT
+	(
+		SELECT	Albums.CreatedBy
+		FROM	Albums
+	);
+
+SELECT	PeopleID
+FROM	People
+WHERE	People.PeopleID IN CreatedAllMedia.PeopleID FROM CreatedAllMedia
+
+************************************
+Query 3:
+************************************
+
+CREATE VIEW PGMovies AS
+	SELECT	Rating
+	FROM	Movies
+	WHERE	Rating = PG
+
+CREATE VIEW ActorMovies AS
+	SELECT	StarsIn
+	FROM	People
+	WHERE	PersonID = ActorID
+
+SELECT	MovieID
+FROM	PGMovies
+WHERE	PGMovies.MovieID IN ActorMovies.MovieID FROM ActorMovies

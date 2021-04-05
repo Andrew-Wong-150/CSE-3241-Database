@@ -1,0 +1,1079 @@
+INSERT INTO EMPLOYEE
+VALUES (‘27’, 10.64, ‘jsmith02@gmail.com’, ‘132 W Pear Tree Ln., Columbus OH’, ‘John’, ‘Smith’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘63’, 14.05, ‘jpark98@gmail.com’, ‘4621 Hampton Blvd., Columbus OH’, ‘Jessie’, ‘Park‘, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘68’, 10.10, ‘pbeck@gmail.com’, ‘1000 Grove St., Easton OH, Apt F’, ‘Paul’, ‘Beck’, bburns@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘37’, 14.88, ‘dmurphy01@gmail.com’, ‘29 S Danvers Ave., Columbus OH’, ‘David’, ‘Murphy’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘32’, 11.26, ‘pwelsh@gmail.com’, ‘1290 Kingston Crt., Polaris OH’, ‘Patricia’, ‘Welsh’, ‘bburns@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘15’, 21.41, ‘sbradford777@gmail.com’, ‘9300 Forest Point Rdg., Easton OH’, ‘Stacy’, ‘Bradford’, ‘bburns@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘85’, 16.55, ‘kgray855@gmail.com’, ‘1660 N Milton Ln., Columbus OH Apt A’, ‘Kyle’, ‘Gray’, ‘bburns@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘65’, 10.40, ‘kcollins@gmail.com’, ‘201 E 10th Ave., Columbus OH’, ‘Keith’, ‘Collins’, ‘bburns@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘76’, 23.16, ‘jbaxter@gmail.com’, ‘9210 S 2nd St., Columbus OH’, ‘Jennifer’, ‘Baxter’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘62’, 18.33, ‘dmorris@gmail.com’, ‘465 Carrol Cir., Columbus OH’, ‘Henry’, ‘Morris’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘71’, 11.58, ‘dwhite15@gmail.com’, ‘132 Hartford Center Dr., Dublin OH’, ‘Daniella’, ‘White’, ’dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘25’, 11.71, ‘dlacy@gmail.com’, ‘2020 Dark Pl., Columbus OH’, ‘Megan’, ‘Lacy’, ‘bburns@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘29’, 12.59, ‘dgriswold7@gmail.com’, ‘568 Sandy Hills Trl., Dublin OH’, ‘Christopher’, ‘Griswold’, ‘bburns@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘42’, 12.84 , ‘dturner@gmail.com’, ‘86 W 5th St., Columbus OH’, ‘Samantha’, ‘Turner’, ‘bburns@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘77’, 21.94, ‘dadler@gmail.com’, ‘446 Ledge Ter., Powell OH’, ‘Ryan’, ‘Adler’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘81’, 14.81, ‘ddesantis01@gmail.com’, ‘7650 Airlane Pl., Columbus OH’, ‘Manny’, ‘DeSantis’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘40’, 11.95, ‘dcaldwell52@gmail.com’,	‘1500 Washington Ln., Columbus OH’, ‘John’, ‘Caldwell’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘57’, 19.33 , ‘dwashington5@gmail.com’, ‘39 E Putnam Dr., Dublin OH’, ‘Chelsea’, ‘Washington’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘89’, 19.22, ‘dringwood@gmail.com’, ‘248 Morning Rd., Columbus OH’, ‘Daniel’, ‘Ringwood’, ‘dstone@gmail.com’);
+
+INSERT INTO EMPLOYEE
+VALUES (‘91’, 11.59, ‘jwashburn@gmail.com’, ‘116 E Kenny Dr., Columbus OH’, ‘Joel’, ‘Washburn’, ‘dstone@gmail.com’);
+
+INSERT INTO OWNER
+VALUES (‘dstone@gmail.com’, ‘Doug’, ‘Stone’);
+
+INSERT INTO OWNER
+VALUES (‘bburns@gmail.com’, ‘Brayden’, ‘Burns’);
+
+INSERT INTO OWNER
+VALUES (‘jsilver@gmail.com’, ‘Johnny’, ‘Silver’);
+
+INSERT INTO OWNER
+VALUES (‘ccollins@gmail.com’, ‘Candace’, ‘Collins’);
+
+INSERT INTO OWNER
+VALUES (‘lprice@gmail.com’, ‘Lisa’, ‘Price’);
+
+INSERT INTO OWNER
+VALUES (‘eswan@gmail.com’, ‘Elizabeth’, ‘Swan’);
+
+INSERT INTO OWNER
+VALUES (‘amiller@gmail.com’, ‘Andrea’, ‘Miller’);
+
+INSERT INTO OWNER
+VALUES (‘kstevens@gmail.com’, ‘Kris’, ‘Stevens’);
+
+INSERT INTO OWNER
+VALUES (‘mbryans@gmail.com’, ‘Melissa’, ‘Bryans’);
+
+INSERT INTO OWNER
+VALUES (‘jpeters@gmail.com’, ‘Jeremy’, ‘Peters’);
+
+INSERT INTO OWNER
+VALUES (‘cwoods@gmail.com’, ‘Christina’, ‘Woods’);
+
+INSERT INTO OWNER
+VALUES (‘jweston@gmail.com’, ‘James’, ‘Weston’);
+
+INSERT INTO OWNER
+VALUES (‘fsmith@gmail.com’, ‘Franklin‘, ‘Smith’);
+
+INSERT INTO OWNER
+VALUES (‘jortiz@gmail.com’, ‘Juan’, ‘Ortiz’);
+
+INSERT INTO OWNER
+VALUES (‘sdowning@gmail.com’, ‘Steven’, ‘Downing’);
+
+INSERT INTO OWNER
+VALUES (‘pnguyen@gmail.com’, ‘Peter’, ‘Nguyen’);
+
+INSERT INTO OWNER
+VALUES (‘cbarkley@gmail.com’, ‘Charles’, ‘Barkley’);
+
+INSERT INTO OWNER
+VALUES (‘mmeadows@gmail.com’, ‘Melissa’, ‘Meadows’);
+
+INSERT INTO OWNER
+VALUES (‘rcallahan@gmail.com’, ‘Ryan’, ‘Callahan’);
+
+INSERT INTO OWNER
+VALUES (‘comega@gmail.com’, ‘Charles’, ‘Omega’);
+
+INSERT INTO REGULATES
+VALUES (9990, ‘27’);
+
+INSERT INTO REGULATES
+VALUES (7324, ‘68’);
+
+INSERT INTO REGULATES
+VALUES (7714, ‘42’);
+
+INSERT INTO REGULATES
+VALUES (2376, ‘68’);
+
+INSERT INTO REGULATES
+VALUES (3442, ‘63’);
+
+INSERT INTO REGULATES
+VALUES (7276, ‘40’);
+
+INSERT INTO REGULATES
+VALUES (9476, ‘27’);
+
+INSERT INTO REGULATES
+VALUES (9852, ‘15’);
+
+INSERT INTO REGULATES
+VALUES (8470, ‘15’);
+
+INSERT INTO REGULATES
+VALUES (1189, ‘37’);
+
+INSERT INTO REGULATES
+VALUES (7984, ‘71’);
+
+INSERT INTO REGULATES
+VALUES (3873, ‘42’);
+
+INSERT INTO REGULATES
+VALUES (2813, ‘71’);
+
+INSERT INTO REGULATES
+VALUES (3381, ‘85’);
+
+INSERT INTO REGULATES
+VALUES (5176, ‘91’);
+
+INSERT INTO REGULATES
+VALUES (9737, ‘57’);
+
+INSERT INTO REGULATES
+VALUES (9725, ‘29’);
+
+INSERT INTO REGULATES
+VALUES (8428, ‘29’);
+
+INSERT INTO REGULATES
+VALUES (6728, ‘32’);
+
+INSERT INTO REGULATES
+VALUES (1079, ‘89’);
+
+INSERT INTO REGISTERS
+VALUES (‘dwhite@gmail.com’, ‘27’);
+
+INSERT INTO REGISTERS
+VALUES (‘kbates@gmail.com’, ‘68’);
+
+INSERT INTO REGISTERS
+VALUES (‘jmiller@gmail.com’, ‘25’);
+
+INSERT INTO REGISTERS
+VALUES (‘mwilliams@gamil.com’, ‘91’);
+
+INSERT INTO REGISTERS
+VALUES (‘kstrong@gmail.com’, ‘68’);
+
+INSERT INTO REGISTERS
+VALUES (‘tperkins@gmail.com’, ‘77’);
+
+INSERT INTO REGISTERS
+VALUES (‘hmills@gmail.com’, ‘81’);
+
+INSERT INTO REGISTERS
+VALUES (‘jcrawford@gmail.com	‘, ‘57’);
+
+INSERT INTO REGISTERS
+VALUES (‘abaker@gmail.com’, ‘57’);
+
+INSERT INTO REGISTERS
+VALUES (‘mcarver@gmail.com’, ‘40’);
+
+INSERT INTO REGISTERS
+VALUES (‘kwashington@gmail.com’, ‘42’);
+
+INSERT INTO REGISTERS
+VALUES (‘scleary@gmail.com’, ‘32’);
+
+INSERT INTO REGISTERS
+VALUES (‘hhill@gmail.com’, ‘37’);
+
+INSERT INTO REGISTERS
+VALUES (‘cholmes@gmail.com’, ‘15’);
+
+INSERT INTO REGISTERS
+VALUES (‘smcqueen@gmail.com’, ‘32’);
+
+INSERT INTO REGISTERS
+VALUES (‘mparker@gmail.com’, ‘91’);
+
+INSERT INTO REGISTERS
+VALUES (‘djohnson@gmail.com’, ‘65’);
+
+INSERT INTO REGISTERS
+VALUES (‘krentra@gmail.com’, ‘71’);
+
+INSERT INTO REGISTERS
+VALUES (‘jmurdock@gmail.com‘, ‘40’);
+
+INSERT INTO REGISTERS
+VALUES (‘gsmith@gmail.com’, ‘81’);
+
+INSERT INTO PATRON
+VALUES (‘dwhite@gmail.com’, ‘526 North Ashley Avenue, Columbus OH’, ‘Daniel’, ‘White’, 1079);
+
+INSERT INTO PATRON
+VALUES (‘kbates@gmail.com’, ‘4 Hudson Ave., Easton OH’, ‘Karen’, ‘Bates’, 7276);
+
+INSERT INTO PATRON
+VALUES (‘jmiller@gmail.com’, ‘217 Rockland St., Columbus OH’, ‘James’, ‘Miller’, 7714);
+
+INSERT INTO PATRON
+VALUES (‘mwilliams@gamil.com’, ‘856 Gulf Ave., Columbus OH’, ‘Megan’, ‘Williams’, 2376);
+
+INSERT INTO PATRON
+VALUES (‘kstrong@gmail.com’, ‘402 Coffee St,. Dublin OH Apt I’, ‘Kevin’, ‘Strong’, 3442);
+
+INSERT INTO PATRON
+VALUES (‘tperkins@gmail.com’, ‘7911 Main St., Columbus OH’, ‘Theodore’, ‘Perkins’, 3381);
+
+INSERT INTO PATRON
+VALUES (‘hmills@gmail.com’, ‘150 North Aspen St., Powell OH’, ‘Henry’, ‘Mills’, 5176);
+
+INSERT INTO PATRON
+VALUES (‘jcrawford@gmail.com’, ‘9409 East Maiden St., Polaris OH Apt B’, ‘Jason’, ‘Crawford’, 9737);
+
+INSERT INTO PATRON
+VALUES (‘abaker@gmail.com’, ‘14 Hamilton Ave., Columbus OH’, ‘Amanda’, ‘Baker’, 9476);
+
+INSERT INTO PATRON
+VALUES (‘mcarver@gmail.com’, ‘55 Sierra St., Columbus OH’, ‘Melissa’, ‘Carver’, 9852);
+
+INSERT INTO PATRON
+VALUES (‘kwashington@gmail.com’, ‘882 Vine Dr., Columbus OH Apt D’, ‘Kathy’, ‘Washington’, 9725);
+
+INSERT INTO PATRON
+VALUES (‘scleary@gmail.com’, ‘8057 10th Ave., Linden OH’, ‘Stephanie’, ‘Cleary’, 8428);
+
+INSERT INTO PATRON
+VALUES (‘hhill@gmail.com’, ‘89 NE. Oxford St., Upper Arlington OH’, ‘Hank’, ‘Hill’, 6728);
+
+INSERT INTO PATRON
+VALUES (‘cholmes@gmail.com’, ‘59 Aspen St., Columbus OH’, ‘Charles’, ‘Holmes’, 9990);
+
+INSERT INTO PATRON
+VALUES (‘smcqueen@gmail.com’, ‘82 Lilac Ln., Easton OH’, ‘Stephen’, ‘McQueen’, 7324);
+
+INSERT INTO PATRON
+VALUES (‘mparker@gmail.com’, ‘1 Princeton St., Polaris OH’, ‘Michelle’, ‘Parker’, 8470);
+
+INSERT INTO PATRON
+VALUES (‘djohnson@gmail.com’, ‘33 4th Dr., Columbus OH’, ‘Douglas’, ‘Johnson’, 1189);
+
+INSERT INTO PATRON
+VALUES (‘krentra@gmail.com’, ‘255 West Spruce St., Columbus OH Apt C’, ‘Keith’, ‘Rentra’, 2813);
+
+INSERT INTO PATRON
+VALUES (‘jmurdock@gmail.com’, ‘4 Hillside St., Dublin OH’, ‘Jackson’, ‘Murdock’, 3873);
+
+INSERT INTO PATRON
+VALUES (‘gsmith@gmail.com’, ‘21 Lantern St., Columbus OH’, ‘George’, ‘Smith’, 7984);
+
+INSERT INTO MEDIA
+VALUES (‘&UV20800’, ‘Jaws’);
+
+INSERT INTO MEDIA
+VALUES (‘#NN13858’, ‘War and Peace’);
+
+INSERT INTO MEDIA
+VALUES (‘$HQ13844’, ‘Dark Side of the Moon’);
+
+INSERT INTO MEDIA
+VALUES (‘$VC14308’, ‘Wuthering Heights’);
+
+INSERT INTO MEDIA
+VALUES (‘#WF24719’, ‘Batman Begins’);
+
+INSERT INTO MEDIA
+VALUES (‘#NX24691’, ‘The Dark Knight’);
+
+INSERT INTO MEDIA
+VALUES (‘%CF11445’, ‘The Dark Knight Rises’);
+
+INSERT INTO MEDIA
+VALUES (‘%RJ17315’, ‘Macbeth’);
+
+INSERT INTO MEDIA
+VALUES (‘&MZ10585’, ‘Titanic’);
+
+INSERT INTO MEDIA
+VALUES (‘%BQ26087’, ‘Pride and Prejudice’);
+
+INSERT INTO MEDIA
+VALUES (‘#EG13975’, ‘Back in Black’);
+
+INSERT INTO MEDIA
+VALUES (‘%GE15238’, ‘Bad Company’);
+
+INSERT INTO MEDIA
+VALUES (‘&AF29134’, ‘Men in Black’);
+
+INSERT INTO MEDIA
+VALUES (‘$SP12822’, ‘Men in Black 2’);
+
+INSERT INTO MEDIA
+VALUES (‘$OJ27572’, ‘Lord of the Flies’);
+
+INSERT INTO MEDIA
+VALUES (‘$GC12860’, ‘Night of the Living Dead’);
+
+INSERT INTO MEDIA
+VALUES (‘#QU21096’, ‘Ender's Game’);
+
+INSERT INTO MEDIA
+VALUES (‘%YF13083’, ‘Led Zeppelin IV’);
+
+INSERT INTO MEDIA
+VALUES (‘$HD22046’, ‘Animals’);
+
+INSERT INTO MEDIA
+VALUES (‘&PH26665’, ‘Rubber Soul’);
+
+INSERT INTO PHYSICAL
+VALUES (‘$IM24725’, ‘Section G, Row 10’, 2);
+
+INSERT INTO PHYSICAL
+VALUES (‘&DX21596’, ‘Section A, Row 3’, 2);
+
+INSERT INTO PHYSICAL
+VALUES (‘#WB23699’, ‘Section C, Row 6’, 3);
+
+INSERT INTO PHYSICAL
+VALUES (‘$SV29154’, ‘Section F, Row 1’, 9);
+
+INSERT INTO PHYSICAL
+VALUES (‘$VK21937’, ‘Section G, Row 2’, 5);
+
+INSERT INTO PHYSICAL
+VALUES (‘&ZA28721’, ‘Section D, Row 4’, 7);
+
+INSERT INTO PHYSICAL
+VALUES (‘%CW27324’, ‘Section A, Row 9’, 3);
+
+INSERT INTO PHYSICAL
+VALUES (‘#II25703’, ‘Section B, Row 10’, 9);
+
+INSERT INTO PHYSICAL
+VALUES (‘%SK18343’, ‘Section E, Row 2’, 1);
+
+INSERT INTO PHYSICAL
+VALUES (‘%GM18871’, ‘Section C, Row 4’, 9);
+
+INSERT INTO PHYSICAL
+VALUES (‘$WN28613’, ‘Section G, Row 7’, 9);
+
+INSERT INTO PHYSICAL
+VALUES (‘&CO12837’, ‘Section A, Row 2’, 7);
+
+INSERT INTO PHYSICAL
+VALUES (‘#RX18026’, ‘Section F, Row 6’, 9);
+
+INSERT INTO PHYSICAL
+VALUES (‘$SD25113’, ‘Section B, Row 3’, 10);
+
+INSERT INTO PHYSICAL
+VALUES (‘#AC11772’, ‘Section F, Row 8’, 5);
+
+INSERT INTO PHYSICAL
+VALUES (‘$AX25532’, ‘Section D, Row 1’, 3);
+
+INSERT INTO PHYSICAL
+VALUES (‘$TB22004’, ‘Section B, Row 3’, 1);
+
+INSERT INTO PHYSICAL
+VALUES (‘$VR21574’, ‘Section C, Row 5’, 10);
+
+INSERT INTO PHYSICAL
+VALUES (‘%LK26366’, ‘Section D, Row 8’, 6);
+
+INSERT INTO PHYSICAL
+VALUES (‘#BT20270’, ‘Section G, Row 9’, 8);
+
+INSERT INTO DIGITAL
+VALUES (‘&UB21029’, ‘Section F, Row 10’, 1);
+
+INSERT INTO DIGITAL
+VALUES (‘%KO27520’, ‘Section F, Row 1’, 9);
+
+INSERT INTO DIGITAL
+VALUES (‘$FX27871’, ‘Section C, Row 4’, 8);
+
+INSERT INTO DIGITAL
+VALUES (‘%JV25982’, ‘Section D, Row 10’, 10);
+
+INSERT INTO DIGITAL
+VALUES (‘&GI26229’, ‘Section A, Row 2’, 6);
+
+INSERT INTO DIGITAL
+VALUES (‘#ZK24116’, ‘Section B, Row 7’, 3);
+
+INSERT INTO DIGITAL
+VALUES (‘$XX21569’, ‘Section A, Row 3’, 4);
+
+INSERT INTO DIGITAL
+VALUES (‘#UW29872’, ‘Section A, Row 10’, 9);
+
+INSERT INTO DIGITAL
+VALUES (‘&AU21005’, ‘Section D, Row 4’, 3);
+
+INSERT INTO DIGITAL
+VALUES (‘$MV20482’, ‘Section C, Row 4’, 2);
+
+INSERT INTO DIGITAL
+VALUES (‘#RK12842’, ‘Section C, Row 3’, 6);
+
+INSERT INTO DIGITAL
+VALUES (‘&RN27484’, ‘Section A, Row 6’, 10);
+
+INSERT INTO DIGITAL
+VALUES (‘&BU27098’, ‘Section F, Row 8’, 9);
+
+INSERT INTO DIGITAL
+VALUES (‘#RL28224’, ‘Section D, Row 3’, 8);
+
+INSERT INTO DIGITAL
+VALUES (‘$OV13377’, ‘Section F, Row 5’, 10);
+
+INSERT INTO DIGITAL
+VALUES (‘%NN27036’, ‘Section C, Row 4’, 1);
+
+INSERT INTO DIGITAL
+VALUES (‘&BK22710’, ‘Section F, Row 3’, 7);
+
+INSERT INTO DIGITAL
+VALUES (‘&XL20016’, ‘Section A Row 6’, 6);
+
+INSERT INTO DIGITAL
+VALUES (‘%JI19350’, ‘Section G, Row 10’, 3);
+
+INSERT INTO DIGITAL
+VALUES (‘#NK23370’, ‘Section G, Row 4’, 2);
+
+INSERT INTO PRINTED 
+VALUES (‘&DX21596’, 256);
+
+INSERT INTO PRINTED 
+VALUES (‘#WB23699’, 289);
+
+INSERT INTO PRINTED 
+VALUES (‘$SD25113’, 234);
+
+INSERT INTO PRINTED 
+VALUES (‘$VK21937’, 220);
+
+INSERT INTO PRINTED 
+VALUES (‘#BT20270’, 163);
+
+INSERT INTO PRINTED 
+VALUES (‘$WN28613’, 295);
+
+INSERT INTO PRINTED 
+VALUES (‘#AC11772’, 374);
+
+INSERT INTO PRINTED 
+VALUES (‘$IM24725’, 252);
+
+INSERT INTO PRINTED 
+VALUES (‘%LK26366’, 241);
+
+INSERT INTO PRINTED 
+VALUES (‘%GM18871’, 159);
+
+INSERT INTO PRINTED 
+VALUES (‘%SK18343’, 202);
+
+INSERT INTO PRINTED 
+VALUES (‘$SV29154’, 206);
+
+INSERT INTO PRINTED 
+VALUES (‘$VR21574’, 355);
+
+INSERT INTO PRINTED 
+VALUES (‘%CW27324’, 306);
+
+INSERT INTO PRINTED 
+VALUES (‘&ZA28721’, 264);
+
+INSERT INTO PRINTED 
+VALUES (‘$TB22004’, 310);
+
+INSERT INTO PRINTED 
+VALUES (‘$AX25532’, 290);
+
+INSERT INTO PRINTED 
+VALUES (‘#II25703’, 219);
+
+INSERT INTO PRINTED 
+VALUES (‘#RX18026’, 311);
+
+INSERT INTO PRINTED 
+VALUES (‘&CO12837’, 221);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘#UW29872’, 11:49:31);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘&AU21005’, 23:44:35);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘&UB21029’, 21:28:36);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘&BU27098’, 5:6:50);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘#RL28224’, 25:48:18);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘$MV20482’, 21:19:11);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘%JV25982’, 10:42:51);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘%JI19350’, 10:28:15);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘#RK12842’, 8:14:41);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘&GI26229’, 7:53:45);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘$FX27871’, 17:36:33);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘$OV13377’, 20:51:13);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘%NN27036’, 17:22:56);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘#ZK24116’, 20:38:49);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘&BK22710’, 19:59:35);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘$XX21569’, 9:50:44);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘&XL20016’, 9:54:58);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘#NK23370’, 15:41:30);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘&RN27484’, 12:58:28);
+
+INSERT INTO AUDIOBOOK
+VALUES (‘%KO27520’, 8:17:48);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘#FC16902’, ‘kstevens@gmail.com’, 2021-05-17, 2021-04-29);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘#WJ17196’, ‘dwhite@gmail.com’, 2021-05-20, 2021-05-02);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘$ON17486’, ‘kstrong@gmail.com’, 2021-03-31, 2021-03-10);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘&HR28031’, ‘hmills@gmail.com’, 2021-05-24, 2021-05-01);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘#BH14811’, ‘mcarver@gmail.com’, 2021-05-21, 2021-05-03);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘$HA11101’, ‘smcqueen@gmail.com’, 2021-04-22, 2021-04-02);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘%IZ16114’, ‘dreynolds@gmail.com’, 2021-06-23, 2021-06-01);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘%QJ26366’, ‘krentra@gmail.com’, 2021-07-04, 2021-06-14);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘%LD28338’, ‘jplemmons@gmail.com’, 2021-05-25, 2021-05-06);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘&VU16013’, ‘kmiller@gmail.com’, 2021-06-05, 2021-05-25);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘%YX19536’, ‘vcrawford@gmail.com’, 2021-07-27, 2021-07-03);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘$KQ10524’, ‘sdeangelis@gmail.com’, 2021-08-14, 2021-07-28);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘%CJ25332’, ‘pgray@gmail.com’, 2021-05-05, 2021-04-23);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘#SI28299’, ‘kjohnston@gmail.com’, 2021-03-31, 2021-03-15);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘#RB19849’, ‘kwashington@gmail.com’, 2021-07-16, 2021-06-28);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘%OZ28780’, ‘abaker@gmail.com’, 2021-06-01, 2021-05-14);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘#ET24186’, ‘cholmes@gmail.com’, 2021-06-30, 2021-06-14);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘%HE21209’, ‘jmurdock@gmail.com’, 2021-08-03, 2021-07-21);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘#IJ18930’, ‘lsimpson@gmail.com’, 2021-04-13, 2021-03-27);
+
+INSERT INTO MEDIABORROWED
+VALUES (‘#JT14082’, ‘awaters@gmail.com’, 2021-06-05, 2021-05-18);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%GN16764’, ‘dstone@gmail.com’, 7, 2021-04-30);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘$CV27700’, ‘dstone@gmail.com’, 3, 2021-06-02);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘&WF20520’, ‘mbryans@gmail.com’, 5, 2021-04-11);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘#YP22605’, ‘mbryans@gmail.com’, 1, 2021-05-14);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘#MR24203’, ‘ccollins@gmail.com’, 6, 2021-05-23);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘#BT12017’, ‘bburns@gmail.com’, 2, 2021-04-29);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%DX28704’, ‘bburns@gmail.com’, 4, 2021-06-12);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘#SX20517’, ‘ccollins@gmail.com’, 4, 2021-06-19);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%OS17132’, ’dstone@gmail.com’, 1, 2021-06-06);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%AP13418’, ‘jwesten@gmail.com’, 7, 2021-05-29);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%EE20648’, ‘sdowning@gmail.com’, 5, 2021-07-03);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘$EO29821’, ‘sdowning@gmail.com’, 6, 2021-07-28);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘&TP21927’, ‘dstone@gmail.com’, 2, 2021-04-23);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘$DV10816’, ‘bburns@gmail.com’, 6, 2021-03-15);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%AY20609’, ‘dstone@gmail.com’, 1, 2021-06-28);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘$QT16342’, ‘jwesten@gmail.com’, 3, 2021-05-04);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%ZZ26475’, ‘mbryans@gmail.com’, 5, 2021-07-14);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%CL22516’, ‘rcallahan@gmail.com’, 4, 2021-05-14);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%WS18537’, ‘rcallahan@gmail.com’, 2, 2021-03-27);
+
+INSERT INTO MEDIABOUGHT
+VALUES (‘%RB18419’, ‘rcallahan@gmail.com’, 6, 2021-05-18);
+
+INSERT INTO ALBUMS
+VALUES (‘%FW11430’, 1963-05-12, ‘Rock’, ‘#U$X44763’);
+
+INSERT INTO ALBUMS
+VALUES (‘&KK27041’, 1972-02-20, ‘Rock’, ‘&K%Q37592’);
+
+INSERT INTO ALBUMS
+VALUES (‘%AD29991’, 1990-10-17, ‘Country’, ‘$E$G46142’);
+
+INSERT INTO ALBUMS
+VALUES (‘&UW25808’, 1989-08-20, ‘R&B’, ‘#H#S	33555’);
+
+INSERT INTO ALBUMS
+VALUES (‘$XD10799’, 1760-11-21, ‘Classical’, ‘&X$J44615’);
+
+INSERT INTO ALBUMS
+VALUES (‘&ES13438’, 1801-04-12, ‘Classical’, ‘$F$N44077’);
+
+INSERT INTO ALBUMS
+VALUES (‘#XE29449’, 1993-03-29, ‘Hip Hop’, ‘&P&N49126’);
+
+INSERT INTO ALBUMS
+VALUES (‘$CR16117’, 1953-02-26, ‘Jazz’, ‘#L$J48736’);
+
+INSERT INTO ALBUMS
+VALUES (‘#RB18347’, 1942-08-29, ‘Blues’, ‘&U%R37336’);
+
+INSERT INTO ALBUMS
+VALUES (‘%YK17073’, 1987-04-18, ‘Punk’, ‘$T$N36781’);
+
+INSERT INTO ALBUMS
+VALUES (‘$YW10246’, 1976-09-21, ‘Country’, ‘$E%J39054’);
+
+INSERT INTO ALBUMS
+VALUES (‘$JH16830’, 1980-11-05, ‘R&B’, ‘#O&G42314’);
+
+INSERT INTO ALBUMS
+VALUES (‘%PK14741’, 1970-01-01, ‘Jazz’, ‘$J%T42916’);
+
+INSERT INTO ALBUMS
+VALUES (‘#VA28236’, 1793-12-10, ‘Classical’, ‘%J$T57607’);
+
+INSERT INTO ALBUMS
+VALUES (‘%FZ10465’, 1983-08-21, ‘Rock’, ‘&D&U56596’);
+
+INSERT INTO ALBUMS
+VALUES (‘$EE11042’, 1990-06-13, ‘Hip Hop’, ‘$F%E48699’);
+
+INSERT INTO ALBUMS
+VALUES (‘&ZT20798’, 1958-02-20, ‘Jazz’, ‘%W&N52680’);
+
+INSERT INTO ALBUMS
+VALUES (‘&JI25683’, 2002-05-17, ‘Alternative’, ‘&I#H54606’);
+
+INSERT INTO ALBUMS
+VALUES (‘&ST23758’, 2005-09-09, ‘Alternative’, ‘%Q%F42497’);
+
+INSERT INTO ALBUMS
+VALUES (‘$KB28847’, 1950-04-20, ‘Blues’, ‘&O&A35874’);
+
+INSERT INTO MOVIES
+VALUES (‘%HK27277’, 2006-03-12, ‘Horror’, 1:45:50, 77.9, ‘&V$P48444’);
+
+INSERT INTO MOVIES
+VALUES (‘%EP29296’, 2002-10-13, ‘Comedy’, 1:32:03, 34.9, ‘#C%I54645’);
+
+INSERT INTO MOVIES
+VALUES (‘&LO22561’, 2015-08-20, ‘Action’, 1:56:31, 91.3, ‘#L&I50619’);
+
+INSERT INTO MOVIES
+VALUES (‘&YC20093’, 1990-09-02, ‘Thriller’, 2:01:45, 29.7, ‘&Z#I46877’);
+
+INSERT INTO MOVIES
+VALUES (‘$UN18978’, 2009-02-10, ‘Romance’, 1:40:21, 67.0, ‘%T$K54234’);
+
+INSERT INTO MOVIES
+VALUES (‘%ZL23180’, 1980-12-20, ‘Biopic’, 2:13:50, 55.9, ‘#E$L30322’);
+
+INSERT INTO MOVIES
+VALUES (‘%YB28450’, 1975-05-03, ‘Comedy’, 1:41:49, 36.0, ‘%J$G31704’);
+
+INSERT INTO MOVIES
+VALUES (‘%KL14329’, 2004-06-09, ‘Action’, 1:40:54, 70.8, ‘$O$J52567’);
+
+INSERT INTO MOVIES
+VALUES (‘$HA27745’, 2010-08-25, ‘Si-fi’, 1:52:40, 99.0, ‘$T&Y51440’);
+
+INSERT INTO MOVIES
+VALUES (‘#HV21401’, 2018-04-04, ‘War’, 2:02:59, 95.0, ‘%Z$A48209’);
+
+INSERT INTO MOVIES
+VALUES (‘$IO25957’, 1980-10-31, ‘Horror’, 1:35:12, 27.7, ‘%Z$Z59894’);
+
+INSERT INTO MOVIES
+VALUES (‘&NT11734’, 1993-10-24, ‘Thriller’, 1:39:01, 82.6, ‘#X$G38037’);
+
+INSERT INTO MOVIES
+VALUES (‘&IV17529’, 1986-07-21, ‘Action’, 2:15:09, 52.0, ‘&H#B40992’);
+
+INSERT INTO MOVIES
+VALUES (‘&LV10550’, 1971-02-05, ‘Romance’, 1:50:21, 94.9, ‘&B$L45353’);
+
+INSERT INTO MOVIES
+VALUES (‘%SQ11437’, 2004-06-30, ‘Si-fi’, 1:49:21, 27.3, ‘%F&X44170’);
+
+INSERT INTO MOVIES
+VALUES (‘#PU28815’, 2020-08-13, ‘Horror’, 1:37:03, 41.7, ‘&J$L32121’);
+
+INSERT INTO MOVIES
+VALUES (‘&HM24583’, 2012-12-20, ‘Action’, 1:44:41, 91.1, ‘#T%S52783’);
+
+INSERT INTO MOVIES
+VALUES (‘$DC12881’, 1978-11-03, ‘Action’, 2:21:13, 94.8, ‘$D#I55827’);
+
+INSERT INTO MOVIES
+VALUES (‘#CC22425’, 1988-09-23, ‘Thriller’, 1:59:00, 58.9, ‘%W$A32586’);
+
+INSERT INTO MOVIES
+VALUES (‘#XO29375’, 2013-04-29, ‘Comedy’, 1:41:05, 59.1, ‘#P$T44779’);
+
+INSERT INTO BOOKS
+VALUES (‘&XG28966’, 1980-03-12, ‘Adventure’, 11, ‘$N%Z33321’);
+
+INSERT INTO BOOKS
+VALUES (‘%EP19735’, 2019-11-03, ‘Self Help’, 5, ‘%T$G59399’);
+
+INSERT INTO BOOKS
+VALUES (‘%LI21916’, 1970-08-20, ‘Cooking’, 6, ‘%N%F59252’);
+
+INSERT INTO BOOKS
+VALUES (‘&NY11849’, 1990-09-07, ‘Si-fi’, 10, ‘&F%E48324’);
+
+INSERT INTO BOOKS
+VALUES (‘$FI13675’, 1982-08-10, ‘Fantasy’, 15, ‘%H&A54702’);
+
+INSERT INTO BOOKS
+VALUES (‘&NN21781’, 1990-12-24, ‘Religion’, 15, ‘$E%P36405’);
+
+INSERT INTO BOOKS
+VALUES (‘#JK17690’, 2001-05-03, ‘Drama’, 7, ‘#Z&A57387’);
+
+INSERT INTO BOOKS
+VALUES (‘$WB13747’, 1965-08-09, ‘Non-Fiction’, 7, ‘&T#Z37357’);
+
+INSERT INTO BOOKS
+VALUES (‘&NO26313’, 2010-08-25, ‘Autobiography’, 10, ‘%A%O35054’);
+
+INSERT INTO BOOKS
+VALUES (‘#SP18804’, 2018-10-04, ‘Fantasy’, 14, ‘&A#B43614’);
+
+INSERT INTO BOOKS
+VALUES (‘%ZW27272’, 1980-01-30, ‘Self Help’, 10, ‘$S&U38932’);
+
+INSERT INTO BOOKS
+VALUES (‘$HR12240’, 2016-11-03, ‘Cooking‘, 12, ’&Q%V35837’);
+
+INSERT INTO BOOKS
+VALUES (‘#BH24284’, 1986-07-25, ‘Non-Fiction’,  6, ‘$Q#S32404’);
+
+INSERT INTO BOOKS
+VALUES (‘#LN25553’, 1980-05-05, ‘Adventure’, 15, ‘%U%P32952’);
+
+INSERT INTO BOOKS
+VALUES (‘%TI26416’, 1989-04-30, ‘Adventure’, 14, ‘$K#G50993’);
+
+INSERT INTO BOOKS
+VALUES (‘$NG19304’, 2020-08-21, ‘Autobiography’, 13, ‘&V#F52245’);
+
+INSERT INTO BOOKS
+VALUES (‘$RK17889’, 2012-12-20, ‘Religion’, 10, ‘&Z%E46594’);
+
+INSERT INTO BOOKS
+VALUES (‘#QU11647’, 1980-06-23, ‘Self Help’, 15, ‘#J&Y37940’);
+
+INSERT INTO BOOKS
+VALUES (‘%EO29506’, 1988-08-23, ‘Non-Fiction’, 11, ‘$Y$W58135’);
+
+INSERT INTO BOOKS
+VALUES (‘%MY12487’, 2010-04-29, ’Si-fi’, 14, ‘$V$Q58564’);
+
+INSERT INTO CHAPTERS
+VALUES (‘1’, ‘101’, ‘Origins’, ‘#BH24284’);
+
+INSERT INTO CHAPTERS
+VALUES (‘17’, ‘58’, ‘Desserts’, ‘%ZW27272’);
+
+INSERT INTO CHAPTERS
+VALUES (‘18’, ‘88’, ‘Into the Deep’, ‘%ZW27272’’);
+
+INSERT INTO CHAPTERS
+VALUES (‘14’, ‘146’, ‘My Story’, ‘$WB13747’);
+
+INSERT INTO CHAPTERS
+VALUES (‘10’, ‘121’, ‘A Test of Skills’, ‘&NY11849’);
+
+INSERT INTO CHAPTERS
+VALUES (‘13’, ‘52’, ‘Baking’, ‘&NY11849’);
+
+INSERT INTO CHAPTERS
+VALUES (‘10’, ‘131’, ‘1960: A Year in Review’, ‘#BH24284’);
+
+INSERT INTO CHAPTERS
+VALUES (‘3’, ‘44’, ‘On the River’, ‘#BH24284’);
+
+INSERT INTO CHAPTERS
+VALUES (‘4’, ‘150’, ‘Act II’, ‘$RK17889’);
+
+INSERT INTO CHAPTERS
+VALUES (‘3’, ‘140’, ‘Trials’, ‘$RK17889’);
+
+INSERT INTO CHAPTERS
+VALUES (‘14’, ‘105’, ‘Meats’, ‘&NY11849’);
+
+INSERT INTO CHAPTERS
+VALUES (‘17’, ‘77’, ‘The Beatles’, ‘$FI13675’);
+
+INSERT INTO CHAPTERS
+VALUES (‘2’, 46’, ‘How to Write a Poem’, ‘$FI13675’);
+
+INSERT INTO CHAPTERS
+VALUES (‘10’, ‘94’, ‘The Dark Elves’, ‘$WB13747’);
+
+INSERT INTO CHAPTERS
+VALUES (‘20’, ‘134’, ‘Forgotten’, ‘$HR12240’);
+
+INSERT INTO CHAPTERS
+VALUES (‘17’, ‘142’, ‘True Blood’, ‘$NG19304’);
+
+INSERT INTO CHAPTERS
+VALUES (‘2’, ‘92’, ‘Knife Skills’, ‘$NG19304’);
+
+INSERT INTO CHAPTERS
+VALUES (‘14’, ‘47’, ‘The Beginning’, ‘&XG28966’);
+
+INSERT INTO CHAPTERS
+VALUES (‘13’, ‘81’, ‘Epilogue’, ‘&XG28966’);
+
+INSERT INTO CHAPTERS
+VALUES (‘16’, ‘85’, ‘A New World’, ‘$HR12240’);
+
+INSERT INTO PEOPLE
+VALUES (‘#G#M54415’, ‘Nicholas’, ‘Mason’, NULL, ‘%ZW27272’);
+
+INSERT INTO PEOPLE
+VALUES (‘%C$N37286’, ‘Bertha’, ‘Williams’, ‘%YB28450’,	NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘#Z&H58820’, ‘Clyde’, ‘Wong’, ‘#XO29375’, ‘#BH24284’);
+
+INSERT INTO PEOPLE
+VALUES (‘#Q%P59401’, ‘Ronald’, ‘Byrd’, NULL, ‘&XG28966’);
+
+INSERT INTO PEOPLE
+VALUES (‘%A%W59874’, ‘Denise’, ‘Yates’, ‘$DC12881’, NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘#U#C48735’, ‘Lewis’, ‘Harrison’, NULL, ‘$NG19304’);
+
+INSERT INTO PEOPLE
+VALUES (‘#F%A40256’, ‘Della’, ‘Fox’, ‘$HA27745’, NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘$L%L35587’, ‘Jorge’, ‘Tyler’, NULL, ‘%EP19735’);
+
+INSERT INTO PEOPLE
+VALUES (‘%T%D45683’, ‘Paulette’, ‘Tran’, NULL, ‘#JK17690’);
+
+INSERT INTO PEOPLE
+VALUES (‘%B$U57080’, ‘Saul’, ‘Medina’, ‘#XO29375’, NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘%U&R59957’, ‘Garry’, ‘Burn’, NULL, NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘&B#S36294’, ‘Trevor’, ‘Howard’, ‘&LV10550’, NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘%L%S36917’, ‘Debbie’, ‘Colon’, NULL, ‘%LI21916’);
+
+INSERT INTO PEOPLE
+VALUES (‘&Z%P56098’, ‘Colin’, ‘Simmons’, ‘#PU28815’, NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘%J$A39204’, ‘Tami’, ‘Perez’, ‘$UN18978’, ‘#SP18804’);
+
+INSERT INTO PEOPLE
+VALUES (‘&H&H33440’, ‘Chad’, ‘Ruiz’, NULL, ‘%EO29506’);
+
+INSERT INTO PEOPLE
+VALUES (‘#X&M40091’, ‘Isabel’, ‘Sherman’, NULL, ‘$WB13747’);
+
+INSERT INTO PEOPLE
+VALUES (‘&N%V39586’, ‘Spencer’, ‘Morton’, ‘&IV17529’, NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘#G$S44543’, ‘Perry’, ‘Robertson’, ‘#HV21401’, NULL);
+
+INSERT INTO PEOPLE
+VALUES (‘%L%F52680’, ‘Megan’, ‘Bridges’, NULL, ‘$HR12240’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘#G#M54415’, ‘Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘%C$N37286’, ‘Actor’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘#Z&H58820’, ‘Actor / Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘#Q%P59401’, ‘Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘%A%W59874’, ‘Actor’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘#U#C48735’, ‘Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘#F%A40256’, ‘Actor’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘$L%L35587’, ‘Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘%T%D45683’, ‘Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘%B$U57080’, ‘Actor’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘%U&R59957’, ‘Artist’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘&B#S36294’, ‘Actor / Artist’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘%L%S36917’, ‘Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘&Z%P56098’, ‘Actor’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘%J$A39204’, ‘Actor /Author / Artist’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘&H&H33440’, ‘Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘#X&M40091’, ‘Author’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘&N%V39586’, ‘Actor / Artist’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘#G$S44543’, ‘Actor’);
+
+INSERT INTO PEOPLEROLE
+VALUES (‘%L%F52680’, ‘Author / Artist’);
