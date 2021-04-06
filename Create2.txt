@@ -1,0 +1,578 @@
+INSERT INTO MEDIA
+VALUES (
+    'mediaID1',
+    'x'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID2',
+    '+'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID3',
+    '5'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID4',
+    'Legends Never Die'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID5',
+    'Death Race for Love'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID6',
+    'Abby Road'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID7',
+    'The Beatles'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID8',
+    'Help!'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID9',
+    'Let It Be'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID10',
+    'Catch a Fire'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID11',
+    'Uprising Live!'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID12',
+    'Live On Stage'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID13',
+    'Born This Way'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID14',
+    'The Fame'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID15',
+    'A Star Is Born'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID16',
+    'Stoney'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID17',
+    'August 26th'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID18',
+    'Changes'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID19',
+    'Purpose'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID20',
+    'Believe'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID21',
+    'The Dark Knight Rises'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID22',
+    'Interstellar'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID23',
+    'Dunkirk'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID24',
+    'Sanju'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID25',
+    'Munna Bhai M.B.B.S'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID26',
+    '3 Idiots'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID27',
+    'Mank'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID28',
+    'The Social Network'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID29',
+    'The Game'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID30',
+    'The Girl With The Dragon Tattoo'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID31',
+    'Gone Girl'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID32',
+    'Pulp Fiction'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID33',
+    'Once Upon A Time...In Hollywood'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID34',
+    'Django Unchained'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID35',
+    'Kill Bill: Vol. 1'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID36',
+    'Harry Potter'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID37',
+    'Avatar'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID38',
+    'Titanic'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID39',
+    'King Kong'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID40',
+    'The Hobbit'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID41',
+    'Life on the Mississippi'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID42',
+    'Roughing It'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID43',
+    'The Innocents Abroad'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID44',
+    'Hamlet'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID45',
+    'Romeo and Juliet'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID46',
+    'Macbeth'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID47',
+    'Othello'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID48',
+    'The Sound and the Fury'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID49',
+    'The Hamlet'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID50',
+    'Go Down, Moses'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID51',
+    'Sartoris'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID52',
+    'The Mansion'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID53',
+    'Pylon'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID54',
+    'Daisy Miller'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID55',
+    'The Ambassadors'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID56',
+    'Washington Square'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID57',
+    'Oliver Twist'
+);
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID58',
+    'A Tale of Two Cities'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID59',
+    'Bleak House'
+);
+
+
+INSERT INTO MEDIA
+VALUES (
+    'mediaID60',
+    'Great Expectations'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID1',
+    'Ed',
+    'Sheeran',
+    'Artist'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID2',
+    'Juice',
+    'Wrld',
+    'Artist'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID3',
+    'The',
+    'Beatles',
+    'Artist'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID4',
+    'Bob',
+    'Marley',
+    'Artist'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID5',
+    'Lady',
+    'Gaga',
+    'Artist'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID6',
+    'Post',
+    'Malone',
+    'Artist'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID7',
+    'Justin',
+    'Bieber',
+    'Artist'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID8',
+    'Christopher',
+    'Nolan',
+    'Director'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID9',
+    'Rajkumar',
+    'Hirani',
+    'Director'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID10',
+    'David',
+    'Fincher',
+    'Director'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID11',
+    'Quentin',
+    'Tarantino',
+    'Director'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID12',
+    'David',
+    'Yates',
+    'Director'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID13',
+    'James',
+    'Cameron',
+    'Director'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID14',
+    'Peter',
+    'Jackson',
+    'Director'
+);
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID16',
+    'David',
+    'Zucker',
+    'Director'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID15',
+    'Mark',
+    'Twain',
+    'Author'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID17',
+    'William',
+    'Shakespeare',
+    'Author'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID18',
+    'William',
+    'Faulkner',
+    'Author'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID19',
+    'Henry',
+    'James',
+    'Author'
+);
+
+
+INSERT INTO PEOPLE
+VALUES (
+    'personID20',
+    'Charles',
+    'Dickens',
+    'Author'
+);
