@@ -576,3 +576,794 @@ VALUES (
     'Dickens',
     'Author'
 );
+
+
+INSERT INTO OWNER
+VALUES (
+    'bossman1@gmail.com',
+    'big',
+    'hoss1'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman2@gmail.com',
+    'big',
+    'hoss2'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman3@gmail.com',
+    'big',
+    'hoss3'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman4@gmail.com',
+    'big',
+    'hoss4'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman5@gmail.com',
+    'big',
+    'hoss5'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman6@gmail.com',
+    'big',
+    'hoss6'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman7@gmail.com',
+    'big',
+    'hoss7'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman8@gmail.com',
+    'big',
+    'hoss8'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman9@gmail.com',
+    'big',
+    'hoss9'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman10@gmail.com',
+    'big',
+    'hoss10'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman11@gmail.com',
+    'big',
+    'hoss11'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman12@gmail.com',
+    'big',
+    'hoss12'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman13@gmail.com',
+    'big',
+    'hoss13'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman14@gmail.com',
+    'big',
+    'hoss14'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman15@gmail.com',
+    'big',
+    'hoss15'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman16@gmail.com',
+    'big',
+    'hoss16'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman17@gmail.com',
+    'big',
+    'hoss17'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman18@gmail.com',
+    'big',
+    'hoss18'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman19@gmail.com',
+    'big',
+    'hoss19'
+);
+
+INSERT INTO OWNER
+VALUES (
+    'bossman20@gmail.com',
+    'big',
+    'hoss20'
+);
+
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID1',
+    80000,
+    'emp1@gmail.com',
+    '101 Emp1 St, Columbus, OH',
+    'worker',
+    'man1',
+    'bossman1@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID2',
+    70000,
+    'emp2@gmail.com',
+    '102 Emp1 St, Columbus, OH',
+    'worker',
+    'man2',
+    'bossman1@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID3',
+    60000,
+    'emp3@gmail.com',
+    '103 Emp1 St, Columbus, OH',
+    'worker',
+    'man3',
+    'bossman1@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID4',
+    40000,
+    'emp4@gmail.com',
+    '104 Emp1 St, Columbus, OH',
+    'worker',
+    'man4',
+    'bossman1@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID5',
+    50000,
+    'emp5@gmail.com',
+    '105 Emp1 St, Columbus, OH',
+    'worker',
+    'man5',
+    'bossman1@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID6',
+    60000,
+    'emp6@gmail.com',
+    '106 Emp1 St, Columbus, OH',
+    'worker',
+    'man6',
+    'bossman2@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID7',
+    70000,
+    'emp7@gmail.com',
+    '107 Emp1 St, Columbus, OH',
+    'worker',
+    'man7',
+    'bossman2@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID8',
+    80000,
+    'emp8@gmail.com',
+    '108 Emp1 St, Columbus, OH',
+    'worker',
+    'man8',
+    'bossman2@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID9',
+    65000,
+    'emp9@gmail.com',
+    '109 Emp1 St, Columbus, OH',
+    'worker',
+    'man9',
+    'bossman2@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID10',
+    80000,
+    'emp10@gmail.com',
+    '110 Emp1 St, Columbus, OH',
+    'worker',
+    'man10',
+    'bossman2@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID11',
+    50000,
+    'emp11@gmail.com',
+    '111 Emp1 St, Columbus, OH',
+    'worker',
+    'man11',
+    'bossman3@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID12',
+    85000,
+    'emp12@gmail.com',
+    '112 Emp1 St, Columbus, OH',
+    'worker',
+    'man12',
+    'bossman3@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID13',
+    65000,
+    'emp13@gmail.com',
+    '113 Emp1 St, Columbus, OH',
+    'worker',
+    'man13',
+    'bossman3@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID14',
+    75000,
+    'emp14@gmail.com',
+    '114 Emp1 St, Columbus, OH',
+    'worker',
+    'man14',
+    'bossman3@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID15',
+    65000,
+    'emp15@gmail.com',
+    '115 Emp1 St, Columbus, OH',
+    'worker',
+    'man15',
+    'bossman3@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID16',
+    60000,
+    'emp16@gmail.com',
+    '116 Emp1 St, Columbus, OH',
+    'worker',
+    'man16',
+    'bossman4@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID17',
+    80000,
+    'emp17@gmail.com',
+    '117 Emp1 St, Columbus, OH',
+    'worker',
+    'man17',
+    'bossman4@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID18',
+    60000,
+    'emp18@gmail.com',
+    '118 Emp1 St, Columbus, OH',
+    'worker',
+    'man18',
+    'bossman4@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID19',
+    75000,
+    'emp19@gmail.com',
+    '119 Emp1 St, Columbus, OH',
+    'worker',
+    'man19',
+    'bossman4@gmail.com'
+);
+
+INSERT INTO EMPLOYEE
+VALUES (
+    'empID20',
+    85000,
+    'emp20@gmail.com',
+    '120 Emp1 St, Columbus, OH',
+    'worker',
+    'man20',
+    'bossman4@gmail.com'
+);
+
+
+INSERT INTO PATRON
+VALUES (
+    'patron1@gmail.com',
+    '1 High St, Columbus, OH',
+    'pat1',
+    'plast',
+    1
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron2@gmail.com',
+    '2 High St, Columbus, OH',
+    'pat2',
+    'plast',
+    2
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron3@gmail.com',
+    '3 High St, Columbus, OH',
+    'pat3',
+    'plast',
+    3
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron4@gmail.com',
+    '4 High St, Columbus, OH',
+    'pat4',
+    'plast',
+    4
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron5@gmail.com',
+    '5 High St, Columbus, OH',
+    'pat5',
+    'plast',
+    5
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron6@gmail.com',
+    '6 High St, Columbus, OH',
+    'pat6',
+    'plast',
+    6
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron7@gmail.com',
+    '7 High St, Columbus, OH',
+    'pat7',
+    'plast',
+    7
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron8@gmail.com',
+    '8 High St, Columbus, OH',
+    'pat8',
+    'plast',
+    8
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron9@gmail.com',
+    '9 High St, Columbus, OH',
+    'pat9',
+    'plast',
+    9
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron10@gmail.com',
+    '10 High St, Columbus, OH',
+    'pat10',
+    'plast',
+    10
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron11@gmail.com',
+    '11 High St, Columbus, OH',
+    'pat11',
+    'plast',
+    11
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron12@gmail.com',
+    '12 High St, Columbus, OH',
+    'pat12',
+    'plast',
+    12
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron13@gmail.com',
+    '13 High St, Columbus, OH',
+    'pat13',
+    'plast',
+    13
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron14@gmail.com',
+    '14 High St, Columbus, OH',
+    'pat14',
+    'plast',
+    14
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron15@gmail.com',
+    '15 High St, Columbus, OH',
+    'pat15',
+    'plast',
+    15
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron16@gmail.com',
+    '16 High St, Columbus, OH',
+    'pat16',
+    'plast',
+    16
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron17@gmail.com',
+    '17 High St, Columbus, OH',
+    'pat17',
+    'plast',
+    17
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron18@gmail.com',
+    '18 High St, Columbus, OH',
+    'pat18',
+    'plast',
+    18
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron19@gmail.com',
+    '19 High St, Columbus, OH',
+    'pat19',
+    'plast',
+    19
+);
+
+INSERT INTO PATRON
+VALUES (
+    'patron20@gmail.com',
+    '20 High St, Columbus, OH',
+    'pat20',
+    'plast',
+    20
+);
+
+
+INSERT INTO REGULATES
+VALUES (
+    1,
+    'empID1'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    2,
+    'empID2'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    3,
+    'empID3'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    4,
+    'empID4'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    5,
+    'empID5'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    6,
+    'empID6'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    7,
+    'empID7'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    8,
+    'empID8'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    9,
+    'empID9'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    10,
+    'empID10'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    11,
+    'empID11'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    12,
+    'empID12'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    13,
+    'empID13'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    14,
+    'empID14'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    15,
+    'empID15'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    15,
+    'empID15'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    16,
+    'empID16'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    17,
+    'empID17'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    18,
+    'empID18'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    19,
+    'empID19'
+);
+
+INSERT INTO REGULATES
+VALUES (
+    20,
+    'empID20'
+);
+
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron1@gmail.com',
+    'empID1'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron2@gmail.com',
+    'empID2'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron3@gmail.com',
+    'empID3'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron4@gmail.com',
+    'empID4'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron5@gmail.com',
+    'empID5'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron6@gmail.com',
+    'empID6'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron7@gmail.com',
+    'empID7'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron8@gmail.com',
+    'empID8'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron9@gmail.com',
+    'empID9'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron10@gmail.com',
+    'empID10'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron11@gmail.com',
+    'empID11'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron12@gmail.com',
+    'empID12'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron13@gmail.com',
+    'empID13'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron14@gmail.com',
+    'empID14'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron15@gmail.com',
+    'empID15'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron16@gmail.com',
+    'empID16'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron17@gmail.com',
+    'empID17'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron18@gmail.com',
+    'empID18'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron19@gmail.com',
+    'empID19'
+);
+
+INSERT INTO REGISTERS
+VALUES (
+    'patron20@gmail.com',
+    'empID20'
+);
