@@ -576,3 +576,680 @@ VALUES (
     'Dickens',
     'Author'
 );
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID1',
+    '2014-06-20',
+    'Pop',
+    'personID1'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID2',
+    '2011-09-09',
+    'Pop',
+    'personID1'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID3',
+    '2015-05-12',
+    'Pop',
+    'personID1'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID4',
+    '2020-07-10',
+    'Hip hop',
+    'personID2'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID5',
+    '2019-03-08',
+    'Hip hop',
+    'personID2'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID6',
+    '1969-09-26',
+    'Rock',
+    'personID3'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID7',
+    '1968-11-22',
+    'Rock',
+    'personID3'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID8',
+    '1965-08-06',
+    'Rock',
+    'personID3'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID9',
+    '1970-05-08',
+    'Rock',
+    'personID3'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID10',
+    '1973-04-13',
+    'Reggae',
+    'personID4'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID11',
+    '2014-11-21',
+    'Reggae',
+    'personID4'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID12',
+    '2017-10-06',
+    'Reggae',
+    'personID4'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID13',
+    '2011-05-23',
+    'Pop',
+    'personID5'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID14',
+    '2008-08-19',
+    'Pop',
+    'personID5'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID15',
+    '2018-10-05',
+    'Pop',
+    'personID5'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID16',
+    '2016-12-09',
+    'Hip hop',
+    'personID6'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID17',
+    '2016-05-12',
+    'Hip hop',
+    'personID6'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID18',
+    '2020-02-14',
+    'Pop',
+    'personID7'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID19',
+    '2015-11-13',
+    'Pop',
+    'personID7'
+);
+
+INSERT INTO ALBUMS
+VALUES (
+    'mediaID20',
+    '2012-06-15',
+    'Pop',
+    'personID7'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID1',
+    'L1'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID2',
+    'L2'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID3',
+    'L3'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID4',
+    'L4'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID5',
+    'L5'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID5',
+    'L5'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID6',
+    'L6'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID7',
+    'L7'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID8',
+    'L8'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID9',
+    'L9'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID10',
+    'L10'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID11',
+    'L11'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID12',
+    'L12'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID13',
+    'L13'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID14',
+    'L14'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID15',
+    'L15'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID16',
+    'L16'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID17',
+    'L17'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID18',
+    'L18'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID19',
+    'L19'
+);
+
+INSERT INTO DIGITAL
+VALUES (
+    'mediaID20',
+    'L20'
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID20',
+    'Aisle1',
+    2
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID31',
+    'Aisle2',
+    4
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID42',
+    'Aisle42',
+    3
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID43',
+    'Aisle3',
+    8
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID44',
+    'Aisle4',
+    1
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID45',
+    'Aisle1',
+    2
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID46',
+    'Aisle2',
+    4
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID37',
+    'Aisle42',
+    3
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID48',
+    'Aisle3',
+    8
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID49',
+    'Aisle4',
+    1
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID21',
+    'Aisle1',
+    2
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID51',
+    'Aisle2',
+    4
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID52',
+    'Aisle42',
+    3
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID53',
+    'Aisle3',
+    8
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID54',
+    'Aisle4',
+    1
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID55',
+    'Aisle1',
+    2
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID56',
+    'Aisle2',
+    4
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID57',
+    'Aisle42',
+    3
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID58',
+    'Aisle3',
+    8
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID25',
+    'Aisle4',
+    1
+);
+
+INSERT INTO PHYSICAL
+VALUES (
+    'mediaID60',
+    'Aisle1',
+    20
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID60',
+    52
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID41',
+    46
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID42',
+    18
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID43',
+    24
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID44',
+    300
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID45',
+    52
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID46',
+    46
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID47',
+    18
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID48',
+    24
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID49',
+    300
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID50',
+    52
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID51',
+    46
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID52',
+    18
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID53',
+    24
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID54',
+    300
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID55',
+    52
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID56',
+    46
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID57',
+    18
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID58',
+    24
+);
+
+INSERT INTO PRINTED
+VALUES (
+    'mediaID59',
+    300
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID60',
+    52
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID41',
+    46
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID42',
+    18
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID43',
+    24
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID44',
+    300
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID45',
+    52
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID46',
+    46
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID47',
+    18
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID48',
+    24
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID49',
+    300
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID50',
+    52
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID51',
+    46
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID52',
+    18
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID53',
+    24
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID54',
+    300
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID55',
+    52
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID56',
+    46
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID57',
+    18
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID58',
+    24
+);
+
+INSERT INTO AUDIOBOOK
+VALUES (
+    'mediaID59',
+    300
+);
+
+
+
+
