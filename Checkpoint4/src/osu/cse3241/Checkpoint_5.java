@@ -105,13 +105,13 @@ public class Checkpoint_5 {
     	switch(num) {
     	
     	case 1:
-    		//TODO: ADD FUNCTION CALL HERE
+    		search(conn);
     		break;
     	case 2:
-    		//TODO: ADD FUNCTION CALL HERE
+    		addRecords(conn);
     		break;
     	case 3:
-    		//TODO: ADD FUNCTION CALL HERE
+    		orderItems(conn);
     		break;
     	case 4:
     		editRecords(conn);
@@ -122,7 +122,119 @@ public class Checkpoint_5 {
     	}
     }
 
+	public static void search(Connection conn) {
+		Scanner in = new Scanner(System.in);
+		String sql = "";
+		String first, last;
+		
+		System.out.println("Enter artist's first name: );
+		first = in.next();
+				   
+		System.out.println("Enter artist's last name: ");
+		last = in.next();
+		
+		sql = "SELECT * FROM PEOPLE WHERE Fname = " + first + " AND Lname = " + last + ";"
+		
+		sqlQuery(conn, sql);
+		in.close();
+	}
+	
+   	
+   	public static void addRecords(Connection conn) {
+		Scanner in = new Scanner(System.in);
+		PreparedStatement statement;
+		String insert = "INSERT INTO PEOPLE VALUES ("
+			
+		System.out.println("Enter new artist ID: ");
+		String artistID = in.nextLine();
+		System.out.println("Enter new artist first name: ");
+		String artistFname = in.nextLine();
+		System.out.println("Enter new artist last name: ");
+		String artistLname = in.nextLine();
+		
+		insert += "'" + artistID + "', '" + artistFname + "', '" + artistLname + "', 'Artist');";
+		
+		try {
+			statement = conn.prepareStatement(insert);
+			result = statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		in.close();
+	}
+		
+				   
+	public static void orderItems(Connection conn) {
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("(1) Activate movie\n(2) Order item");
+		int choice = in.nextInt();
+		
+		if (choice == 1) {
+			PreparedStatement statement;
+			String movieInsert = "INSERT INTO MOVIES VALUES ('";
+			
+			System.out.println("Enter movieID: ");
+			String movieID = in.nextLine();
+			System.out.println("Enter release date: ");
+			String releaseDate = in.nextLine();
+			System.out.println("Enter genre: ");
+			String genre = in.nextLine();
+			System.out.println("Enter length: ");
+			String length = in.nextLine();
+			System.out.println("Enter rating: ");
+			String rating = in.nextLine();
+			System.out.println("Enter director: ");
+			String director = in.nextLine();
+			
+			movieInsert += movieID + "', '" + releaseDate + "', '" + genre + "', '" + length + "', '" + rating + "', '" + director + "');";
+			try {
+				statement = conn.prepareStatement(movieInsert);
+				result = statement.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		} else if (choice == 2) {
+		
+			PreparedStatement statement1, statement2;
+			String mediaInsert = "INSERT INTO MEDIA VALUES ('";
+			String mediaBought = "INSERT INTO MEDIABOUGHT VALUES ('";
 
+			System.out.println("Enter mediaID ordered: ");
+			String mediaID = in.nextLine();
+			System.out.println("Enter media title: ");
+			String mediaTitle = in.nextline();
+
+			mediaInsert += mediaID + "', '" + mediaTitle + "');";
+
+			try {
+				statement1 = conn.prepareStatement(mediaInsert);
+				result = statement1.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			System.out.println("Enter purchaser's email: ");
+			String purchasedBy = in.nextLine();
+			System.out.println("Enter copies purchased: ");
+			int numPurchased = in.nextInt();
+			System.out.println("Enter date (YYYY-MM-DD): ");
+			String purchaseDate = in.nextLine();
+
+			mediaBought += mediaID + "', '" + purchasedBy + "', " + numPurchased + ", '" + purchaseDate + "');";
+
+			try {
+				statement2 = conn.prepareStatement(mediaBought);
+				result = statement2.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		in.close();
+	}
+				   
+	
 	public static void editRecords(Connection conn) {
 		
 		Scanner in = new Scanner(System.in);
