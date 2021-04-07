@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"osu.cse3241","l":"CSE3241app"}]
