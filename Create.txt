@@ -194,6 +194,8 @@ CREATE TABLE PEOPLE (
     PersonID VARCHAR (10) NOT NULL,
     Fname    VARCHAR (15) NOT NULL,
     Lname    VARCHAR (15) NOT NULL,
+    Bday     DATE,
+    Role     VARCHAR (15),
     PRIMARY KEY (
         PersonID
     )
