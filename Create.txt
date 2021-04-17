@@ -1,4 +1,6 @@
-﻿CREATE TABLE OWNER (
+﻿PRAGMA foreign_keys = ON;
+
+CREATE TABLE OWNER (
     Email VARCHAR (30) NOT NULL,
     Fname VARCHAR (15) NOT NULL,
     Lname VARCHAR (15) NOT NULL,
@@ -60,8 +62,11 @@ CREATE TABLE PATRON (
 );
 
 CREATE TABLE MEDIA (
-    MediaID VARCHAR (30) NOT NULL,
-    Title   VARCHAR (30) NOT NULL,
+    MediaID     VARCHAR (30) NOT NULL,
+    Title       VARCHAR (30) NOT NULL,
+    ReleaseDate DATE         NOT NULL,
+    Genre       VARCHAR (30) NOT NULL,
+    Type        VARCHAR (30) NOT NULL,
     PRIMARY KEY (
         MediaID
     )
@@ -93,12 +98,11 @@ CREATE TABLE DIGITAL (
 );
 
 CREATE TABLE MOVIES (
-    MovieID     VARCHAR (30) NOT NULL,
-    ReleaseDate DATE         NOT NULL,
-    Genre       VARCHAR (30) NOT NULL,
-    Length      TIME         NOT NULL,
-    Rating      FLOAT (53)   NOT NULL,
-    Director    VARCHAR (30) NOT NULL,
+    MovieID  VARCHAR (30) NOT NULL,
+    Length   TIME         NOT NULL,
+    Rating   FLOAT (53)   NOT NULL,
+    Actor    VARCHAR (30) NOT NULL,
+    Director VARCHAR (30) NOT NULL,
     PRIMARY KEY (
         MovieID
     ),
@@ -106,49 +110,49 @@ CREATE TABLE MOVIES (
         MovieID
     )
     REFERENCES MEDIA (MediaID),
+    FOREIGN KEY (
+        Actor
+    )
+    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE, 
     FOREIGN KEY (
         Director
     )
-    REFERENCES PEOPLE (PersonID) 
-);
-
-CREATE TABLE ALBUMS (
-    AlbumID     VARCHAR (30) NOT NULL,
-    ReleaseDate DATE         NOT NULL,
-    Genre       VARCHAR (30) NOT NULL,
-    Artist      VARCHAR (10) NOT NULL,
-    PRIMARY KEY (
-        AlbumID
-    ),
-    FOREIGN KEY (
-        AlbumID
-    )
-    REFERENCES MEDIA (MediaID),
-    FOREIGN KEY (
-        Artist
-    )
-    REFERENCES PEOPLE (PersonID) 
+    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE 
 );
 
 CREATE TABLE TRACKS (
     TrackID VARCHAR (30) NOT NULL,
-    Title   VARCHAR (30) NOT NULL,
-    Genre   VARCHAR (30) NOT NULL,
-    AlbumID VARCHAR (30) NOT NULL,
+    Lenght  TIME         NOT NULL,
+    AlbumID VARCHAR (30),
+    Artist  VARCHAR (30) NOT NULL,
     PRIMARY KEY (
         TrackID
     ),
     FOREIGN KEY (
+        TrackID
+    )
+    REFERENCES MEDIA (MediaID),
+    FOREIGN KEY (
         AlbumID
     )
-    REFERENCES ALBUMS (AlbumID) 
+    REFERENCES ALBUMS (AlbumID),
+    FOREIGN KEY (
+        Artist
+    )
+    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE
+);
+
+CREATE TABLE ALBUMS (
+    AlbumID VARCHAR (30) NOT NULL,
+    Lenght  TIME         NOT NULL,
+    PRIMARY KEY (
+        AlbumID
+    )
 );
 
 CREATE TABLE BOOKS (
-    BookID      VARCHAR (30) NOT NULL,
-    ReleaseDate DATE         NOT NULL,
-    Genre       VARCHAR (30) NOT NULL,
-    Author      VARCHAR (10) NOT NULL,
+    BookID VARCHAR (30) NOT NULL,
+    Author VARCHAR (10) NOT NULL,
     PRIMARY KEY (
         BookID
     ),
@@ -159,21 +163,7 @@ CREATE TABLE BOOKS (
     FOREIGN KEY (
         Author
     )
-    REFERENCES PEOPLE (PersonID) 
-);
-
-CREATE TABLE CHAPTERS (
-    ChapterNum INT          NOT NULL,
-    NumofPages INT          NOT NULL,
-    Title      VARCHAR (30),
-    BookID     VARCHAR (30) NOT NULL,
-    PRIMARY KEY (
-        BookID
-    ),
-    FOREIGN KEY (
-        BookID
-    )
-    REFERENCES BOOKS (BookID) 
+    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE
 );
 
 CREATE TABLE PRINTED (
@@ -204,7 +194,6 @@ CREATE TABLE PEOPLE (
     PersonID VARCHAR (10) NOT NULL,
     Fname    VARCHAR (15) NOT NULL,
     Lname    VARCHAR (15) NOT NULL,
-    Roles    VARCHAR (30) NOT NULL,
     PRIMARY KEY (
         PersonID
     )
@@ -221,7 +210,11 @@ CREATE TABLE MEDIABORROWED (
     FOREIGN KEY (
         MediaID
     )
-    REFERENCES MEDIA (MediaID) 
+    REFERENCES MEDIA (MediaID) ,
+    FOREIGN KEY (
+        CheckedOutBy
+    )
+    REFERENCES PATRON (Email) 
 );
 
 CREATE TABLE MEDIABOUGHT (
@@ -235,5 +228,9 @@ CREATE TABLE MEDIABOUGHT (
     FOREIGN KEY (
         MediaID
     )
-    REFERENCES MEDIA (MediaID) 
+    REFERENCES MEDIA (MediaID),
+    FOREIGN KEY (
+        PurchasedBy
+    )
+    REFERENCES OWNER (Email) 
 );
