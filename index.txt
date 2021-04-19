@@ -1,0 +1,16 @@
+--Creating an index to improve performance on all Patrons, because they can have first names that are the same. It will allow for a good distribution and improve the speed of multiple queries. 
+
+CREATE UNIQUE INDEX patronIndex ON PATRON (FName);
+
+--Drop patronIndex
+
+DROP INDEX IF EXISTS patronIndex;
+
+
+--Creating an index to improve performance on media queries that deal with genres. Since there will be a bunch of repeating instances of attributes, it will speed up those corresponding queries. 
+ 
+CREATE UNIQUE INDEX mediaIndex ON MEDIA (GENRE);
+
+--Drop mediaIndex
+
+DROP INDEX IF EXISTS mediaIndex;
