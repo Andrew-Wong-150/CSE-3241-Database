@@ -1,13 +1,6 @@
 package osu.cse3241;
 
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-import java.sql.DatabaseMetaData;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
 
 
@@ -48,13 +41,14 @@ public class Database {
             ResultSetMetaData metadata = result.getMetaData();
             int column = metadata.getColumnCount();
             for (int i = 1; i <= column; i++) {
-                System.out.print(metadata.getColumnName(i) + "\t");
+                System.out.print(metadata.getColumnName(i) + "\t\t");
             }
             System.out.println("\n");
             while (result.next()) {
+                System.out.println("");
                 for (int i = 1; i <= column; i++) {
                     String columnValue = result.getString(i);
-                    System.out.print(columnValue + "\t");
+                    System.out.print(columnValue + "\t\t");
                 }
             }
             System.out.println("\n");
@@ -134,53 +128,72 @@ public class Database {
         return result.getInt(1);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         Connection conn = initializeDB(DATABASE);
         System.out.println(conn);
 
-        // display menu
-        System.out.println("Select Option:\n");
-        System.out.println("\t1. Search database");
-        System.out.println("\t2. Add new media item to database");
-        System.out.println("\t3. Order items");
-        System.out.println("\t4. Activate items");
-        System.out.println("\t5. Edit media");
-        System.out.println("\t6. Add or Edit artist/actor/author/director");
-        System.out.println("\t7. Hire employee");
-        System.out.println("\t8. Edit patron");
-        System.out.println("\t9. Useful reports");
-
-        Scanner in = new Scanner(System.in);
-        int num = in.nextInt();
-
         while(true) {
 
-            try {
-                switch (num) {
-                    case 1:
-                        searchItem(conn);
-                        break;
-                    case 2:
-                        addItem(conn);
-                        break;
-                    case 3:
-                        orderItem(conn);
-                        break;
-                    case 4:
-                        activateItem(conn);
-                        break;
-                    case 5:
+            Scanner in = new Scanner(System.in);
 
-                        break;
-                    case 6:
-                        editPerson(conn);
-                        break;
-                }
+            System.out.println("\nPress Enter to continue...");
+            in.nextLine();
 
-            } catch (SQLException e) {
-                e.printStackTrace();
+            // display menu
+            System.out.println("\nSelect Option:\n");
+            System.out.println("\t1.  Search catalog");
+            System.out.println("\t2.  Add new media item to database");
+            System.out.println("\t3.  Order new items");
+            System.out.println("\t4.  Activate items");
+            System.out.println("\t5.  Check out item");
+            System.out.println("\t6.  Edit media or Delete lost item");
+            System.out.println("\t7.  Add or Edit artist/actor/author/director");
+            System.out.println("\t8.  Add or Remove patron");
+            System.out.println("\t9.  Add or Remove employee");
+            System.out.println("\t10. Add or Remove owner");
+            System.out.println("\t11. Display employees/patrons/owners");
+            System.out.println("\t12. Useful reports");
+            int num = in.nextInt();
+            in.nextLine();
 
+            switch (num) {
+                case 1:
+                    searchItem(conn);
+                    break;
+                case 2:
+                    addItem(conn);
+                    break;
+                case 3:
+                    orderItem(conn);
+                    break;
+                case 4:
+                    activateItem(conn);
+                    break;
+                case 5:
+                    checkOutOrReturnItem(conn);
+                    break;
+                case 6:
+                    editItem(conn);
+                    break;
+                case 7:
+                    editPerson(conn);
+                    break;
+                case 8:
+                    editPatron(conn);
+                    break;
+                case 9:
+                    editEmployee(conn);
+                    break;
+                case 10:
+                    editOwner(conn);
+                    break;
+                case 11:
+                    displayInternal(conn);
+                    break;
+                case 12:
+                    usefulReports(conn);
+                    break;
             }
         }
     }
@@ -188,14 +201,24 @@ public class Database {
     public static void searchItem(Connection conn) throws SQLException {
 
         System.out.println("Select Search:\n");
-        System.out.println("\t1. Display all artists");
-        System.out.println("\t2. Display all actors");
-        System.out.println("\t3. Display all directors");
-        System.out.println("\t4. Display all authors");
-        System.out.println("\t5. Display all tracks");
-        System.out.println("\t6. Display all movies");
-        System.out.println("\t7. Display all books");
-        System.out.println("\t8. Search by title");
+        System.out.println("\tDISPLAY ALL PEOPLE");
+        System.out.println("--------------------------------------------");
+        System.out.println("\t1.  Display all artists");
+        System.out.println("\t2.  Display all actors");
+        System.out.println("\t3.  Display all directors");
+        System.out.println("\t4.  Display all authors");
+
+        System.out.println("\n\tDISPLAY ALL MEDIA");
+        System.out.println("--------------------------------------------");
+        System.out.println("\t5.  Display all tracks");
+        System.out.println("\t6.  Display all movies");
+        System.out.println("\t7.  Display all books");
+        System.out.println("\t8.  Search by title");
+
+        System.out.println("\n\tDISPLAY ALL BY PHYSICAL VS DIGITAL");
+        System.out.println("--------------------------------------------");
+        System.out.println("\t9.  Display all physical by title");
+        System.out.println("\t10. Display all digital by title");
 
 
         Scanner in = new Scanner(System.in);
@@ -205,7 +228,7 @@ public class Database {
         // create variables used for query creation
         PreparedStatement statement = null;
         ResultSet result = null;
-        String query, select, from, where;
+        String query, select = null, from = null, where = null, group = null, title;
 
         switch (num) {
 
@@ -213,9 +236,10 @@ public class Database {
 
                 // Display all artist
                 select = "SELECT PEOPLE.* ";
-                from = "FROM MEDIA, TRACKS, PEOPLE ";
-                where = "WHERE MEDIA.MediaID = TRACKS.TrackID AND TRACKS.Artist = PEOPLE.PersonID;";
-                query = select + from + where;
+                from = "FROM TRACKS, PEOPLE ";
+                where = "WHERE TRACKS.Artist = PEOPLE.PersonID ";
+                group = "GROUP BY PEOPLE.PersonID;";
+                query = select + from + where + group;
                 statement = conn.prepareStatement(query);
                 result = statement.executeQuery();
                 break;
@@ -225,8 +249,9 @@ public class Database {
                 // Display all actor
                 select = "SELECT PEOPLE.* ";
                 from = "FROM ACTORS, PEOPLE ";
-                where = "WHERE ACTORS.ActorID = PEOPLE.PersonID;";
-                query = select + from + where;
+                where = "WHERE ACTORS.ActorID = PEOPLE.PersonID ";
+                group = "GROUP BY PEOPLE.PersonID;";
+                query = select + from + where + group;
                 statement = conn.prepareStatement(query);
                 result = statement.executeQuery();
                 break;
@@ -235,9 +260,10 @@ public class Database {
 
                 // Display all actor
                 select = "SELECT PEOPLE.* ";
-                from = "FROM MEDIA, MOVIES, PEOPLE ";
-                where = "WHERE MEDIA.MediaID = MOVIES.MovieID AND MOVIES.Director = PEOPLE.PersonID;";
-                query = select + from + where;
+                from = "FROM MOVIES, PEOPLE ";
+                where = "WHERE MOVIES.Director = PEOPLE.PersonID ";
+                group = "GROUP BY PEOPLE.PersonID;";
+                query = select + from + where + group;
                 statement = conn.prepareStatement(query);
                 result = statement.executeQuery();
                 break;
@@ -246,9 +272,10 @@ public class Database {
 
                 // Display all author
                 select = "SELECT PEOPLE.* ";
-                from = "FROM MEDIA, BOOKS, PEOPLE ";
-                where = "WHERE MEDIA.MediaID = BOOKS.BookID AND BOOKS.Author = PEOPLE.PersonID;";
-                query = select + from + where;
+                from = "FROM BOOKS, PEOPLE ";
+                where = "WHERE BOOKS.Author = PEOPLE.PersonID ";
+                group = "GROUP BY PEOPLE.PersonID;";
+                query = select + from + where + group;
                 statement = conn.prepareStatement(query);
                 result = statement.executeQuery();
                 break;
@@ -256,9 +283,10 @@ public class Database {
             case 5:
 
                 // Display all tracks
-                select = "SELECT * ";
-                from = "FROM TRACKS;";
-                query = select + from;
+                select = "SELECT MEDIA.*, TRACKS.* ";
+                from = "FROM MEDIA, TRACKS ";
+                where = "WHERE MEDIA.MediaID = TRACKS.TrackID;";
+                query = select + from + where;
                 statement = conn.prepareStatement(query);
                 result = statement.executeQuery();
                 break;
@@ -266,9 +294,10 @@ public class Database {
             case 6:
 
                 // Display all movies
-                select = "SELECT * ";
-                from = "FROM MOVIES;";
-                query = select + from;
+                select = "SELECT MEDIA.*, MOVIES.* ";
+                from = "FROM MEDIA, MOVIES ";
+                where = "WHERE MEDIA.MediaID = MOVIES.MovieID;";
+                query = select + from + where;
                 statement = conn.prepareStatement(query);
                 result = statement.executeQuery();
                 break;
@@ -276,9 +305,10 @@ public class Database {
             case 7:
 
                 // Display all books
-                select = "SELECT * ";
-                from = "FROM BOOKS;";
-                query = select + from;
+                select = "SELECT MEDIA.*, BOOKS.* ";
+                from = "FROM MEDIA, BOOKS ";
+                where = "WHERE MEDIA.MediaID = BOOKS.BookID;";
+                query = select + from + where;
                 statement = conn.prepareStatement(query);
                 result = statement.executeQuery();
                 break;
@@ -287,11 +317,58 @@ public class Database {
 
                 // Search by title
                 System.out.println("Enter media title");
-                String title = in.nextLine();
+                title = in.nextLine();
+                System.out.println("Enter media type (t: Track, b: Book, m: Movie)");
+                String type = in.nextLine();
 
-                select = "SELECT Media.* ";
-                from = "FROM MEDIA ";
-                where = "WHERE MEDIA.Title = ?;";
+                if(type.equals("t")){
+                    select = "SELECT Media.*, TRACKS.* ";
+                    from = "FROM MEDIA, TRACKS ";
+                    where = "WHERE MEDIA.Title = ?;";
+                }
+
+                if(type.equals("b")){
+                    select = "SELECT Media.*, BOOKS.* ";
+                    from = "FROM MEDIA, BOOKS ";
+                    where = "WHERE MEDIA.Title = ?;";
+                }
+
+                if(type.equals("m")){
+                    select = "SELECT Media.*, MOVIES.* ";
+                    from = "FROM MEDIA, MOVIES ";
+                    where = "WHERE MEDIA.Title = ?;";
+                }
+
+                query = select + from + where;
+                statement = conn.prepareStatement(query);
+                statement.setString(1, title);
+                result = statement.executeQuery();
+                break;
+
+            case 9:
+
+                // Display all physical by title
+                System.out.println("Enter media title");
+                title = in.nextLine();
+
+                select = "SELECT PHYSICAL.* ";
+                from = "FROM PHYSICAL, MEDIA ";
+                where = "WHERE PHYSICAL.PhysicalID = MEDIA.MediaID AND MEDIA.Title = ?;";
+                query = select + from + where;
+                statement = conn.prepareStatement(query);
+                statement.setString(1, title);
+                result = statement.executeQuery();
+                break;
+
+            case 10:
+
+                // Display all digital by title
+                System.out.println("Enter media title");
+                title = in.nextLine();
+
+                select = "SELECT DIGITAL.* ";
+                from = "FROM DIGITAL, MEDIA ";
+                where = "WHERE DIGITAL.DigitalID = MEDIA.MediaID AND MEDIA.Title = ?;";
                 query = select + from + where;
                 statement = conn.prepareStatement(query);
                 statement.setString(1, title);
@@ -302,7 +379,6 @@ public class Database {
         // print result set
         displayResultSet(result, statement, conn);
 
-        in.close();
     }
 
     public static int addItem(Connection conn) throws SQLException {
@@ -507,7 +583,6 @@ public class Database {
                 break;
         }
 
-        in.close();
         return MediaID;
     }
 
@@ -628,28 +703,152 @@ public class Database {
         }
     }
 
+    public static void checkOutOrReturnItem(Connection conn) throws SQLException {
+
+        Scanner in = new Scanner(System.in);
+
+        // create variables used for query creation
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        String query, email, dueDate, checkOutDate, licence, type;
+        int mediaID, barcode;
+
+        System.out.println("Select action:");
+        System.out.println("\t1. Checkout");
+        System.out.println("\t2. Return");
+        int num = in.nextInt();
+        in.nextLine();
+
+        switch(num) {
+
+            case 1:
+
+                // Get checkout information
+                System.out.println("Enter mediaID:");
+                mediaID = in.nextInt();
+                in.nextLine();
+                System.out.println("Enter email of patron checking out");
+                email = in.nextLine();
+                System.out.println("Enter check out date (YYYY-MM-DD)");
+                checkOutDate = in.nextLine();
+                System.out.println("Enter due date (YYYY-MM-DD)");
+                dueDate = in.nextLine();
+                System.out.println("Enter media type (d: Digital, p:Physical)");
+                type = in.nextLine();
+
+                query = "INSERT INTO MEDIABORROWED VALUES (NULL, ?, ?, ?, ?, FALSE, ?, ?);";
+                statement = conn.prepareStatement(query);
+                statement.setInt(1, mediaID);
+                statement.setString(2, email);
+                statement.setString(3, dueDate);
+                statement.setString(4, checkOutDate);
+
+                if (type.equals("p")) {
+                    System.out.println("Enter barcode");
+                    barcode = in.nextInt();
+                    in.nextLine();
+                    statement.setInt(5, barcode);
+                    statement.setNull(6, Types.VARCHAR);
+                }
+
+                if (type.equals("d")) {
+                    System.out.println("Enter licence");
+                    licence = in.nextLine();
+                    in.nextLine();
+                    statement.setNull(5, Types.INTEGER);
+                    statement.setString(6, licence);
+                }
+
+                statement.executeUpdate();
+                System.out.println("Checkout Completed.");
+                break;
+
+            case 2:
+
+                // Get return information
+                System.out.println("Enter mediaID:");
+                mediaID = in.nextInt();
+                in.nextLine();
+                System.out.println("Enter email of patron who checked out item");
+                email = in.nextLine();
+
+                query = "UPDATE MEDIABORROWED SET Returned = TRUE WHERE MediaID = ? AND CheckedOutBy = ?;";
+                statement = conn.prepareStatement(query);
+                statement.setInt(1, mediaID);
+                statement.setString(2, email);
+                statement.executeUpdate();
+                System.out.println("Return Completed");
+                break;
+        }
+
+    }
+
     public static void editItem(Connection conn) throws SQLException {
 
-        System.out.println("Type of item to edit:\n");
-        System.out.println("\t1. Track");
-        System.out.println("\t2. Movie");
-        System.out.println("\t2. Book");
+        System.out.println("Select Action:\n");
+        System.out.println("\t1. Edit media");
+        System.out.println("\t2. Delete lost item");
 
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
         in.nextLine();
 
         String fname, lname, bday;
-        String query, update, set, where;
-        int MediaID;
+        String query, type, licence, title, date, genre;
+        int MediaID, barcode;
         PreparedStatement statement = null;
 
         switch(num) {
 
             case 1:
 
+                // Edit item
+                System.out.println("Enter MediaID");
+                MediaID = in.nextInt();
+                System.out.println("Enter new Title");
+                title = in.nextLine();
+                System.out.println("Enter new Release Date");
+                date = in.nextLine();
+                System.out.println("Enter new Genre");
+                genre = in.nextLine();
+
+                query = "UPDATE MEDIA SET Title = ?, ReleaseDate = ?, Genre = ? WHERE MediaID = ?;";
+                statement = conn.prepareStatement(query);
+                statement.setString(1, title);
+                statement.setString(2, date);
+                statement.setString(3, genre);
+                statement.setInt(4, MediaID);
+                statement.executeUpdate();
+                System.out.println("Update Complete");
+                break;
+
             case 2:
 
+                // Delete item
+                System.out.println("Enter media type (d: Digital, p:Physical)");
+                type = in.nextLine();
+
+                if (type.equals("p")) {
+                    System.out.println("Enter barcode");
+                    barcode = in.nextInt();
+                    query = "DELETE FROM PHYSICAL WHERE Barcode = ?;";
+                    statement = conn.prepareStatement(query);
+                    statement.setInt(1,barcode);
+                    statement.executeUpdate();
+                }
+
+                if (type.equals("d")) {
+                    System.out.println("Enter licence");
+                    licence = in.nextLine();
+                    in.nextLine();
+                    query = "DELETE FROM DIGITAL WHERE Licence = ?;";
+                    statement = conn.prepareStatement(query);
+                    statement.setString(1, licence);
+                    statement.executeUpdate();
+                }
+
+                System.out.println("Delete Complete");
+                break;
         }
     }
 
@@ -707,19 +906,246 @@ public class Database {
                 statement.setInt(4, MediaID);
                 statement.executeUpdate();
                 statement.close();
+                System.out.println("Person Updated.");
         }
     }
 
-    public static void hireEmployee(Connection conn) {}
+    public static void editPatron(Connection conn) throws SQLException {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Select action:");
+        System.out.println("\t1. Add Patron");
+        System.out.println("\t2. Remove Patron");
+
+        int num = in.nextInt();
+        in.nextLine();
+
+        // create variables used for query creation
+        PreparedStatement statement;
+        ResultSet result;
+        String query, insert, values;
+        String email, address, fname, lname;
+        int cardNum;
+
+        switch(num) {
+
+            case 1:
+
+                System.out.println("Enter Email");
+                email = in.nextLine();
+                System.out.println("Enter Address");
+                address = in.nextLine();
+                System.out.println("Enter First Name");
+                fname = in.nextLine();
+                System.out.println("Enter Last Name");
+                lname = in.nextLine();
+                System.out.println("Enter Card Number");
+                cardNum = in.nextInt();
+                in.nextLine();
+
+                insert = "INSERT INTO PATRON ";
+                values = "VALUES (?, ?, ?, ?, ?);";
+                query = insert + values;
+
+                statement = conn.prepareStatement(query);
+                statement.setString(1, email);
+                statement.setString(2, address);
+                statement.setString(3, fname);
+                statement.setString(4, lname);
+                statement.setInt(5, cardNum);
+                statement.executeUpdate();
+                System.out.println("Patron Added to Database.");
+                break;
+
+            case 2:
+                System.out.println("Enter Card Number");
+                cardNum = in.nextInt();
+                in.nextLine();
+                query = "DELETE FROM PATRON WHERE CardNum = ?;";
+                statement = conn.prepareStatement(query);
+                statement.setInt(1, cardNum);
+                statement.executeUpdate();
+                System.out.println("Patron Removed.");
+        }
+    }
+
+    public static void editEmployee(Connection conn) throws SQLException {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Select action:");
+        System.out.println("\t1. Add Employee");
+        System.out.println("\t2. Remove Employee");
+
+        int num = in.nextInt();
+        in.nextLine();
+
+        // create variables used for query creation
+        PreparedStatement statement;
+        ResultSet result;
+        String query, insert, values;
+        String email, address, fname, lname, hiredBy;
+        float salary;
+        int EmployeeID;
+
+        switch(num) {
+
+            case 1:
+                // Get employee data
+                System.out.println("Enter Hiring Manager (Owner) Email");
+                hiredBy = in.nextLine();
+
+                // Ensure boss exsists
+                query = "SELECT * FROM OWNER WHERE Email = ?;";
+                statement = conn.prepareStatement(query);
+                statement.setString(1, hiredBy);
+                result = statement.executeQuery();
+
+                if (!result.next()) {
+                    System.out.println("Owner not found. Must add owner first. Returning to menu.");
+                    return;
+                }
+
+                System.out.println("Enter Salary");
+                salary = in.nextFloat();
+                in.nextLine();
+                System.out.println("Enter Email");
+                email = in.nextLine();
+                System.out.println("Enter Address");
+                address = in.nextLine();
+                System.out.println("Enter First Name");
+                fname = in.nextLine();
+                System.out.println("Enter Last Name");
+                lname = in.nextLine();
+
+                insert = "INSERT INTO EMPLOYEE ";
+                values = "VALUES (NULL, ?, ?, ?, ?, ?, ?);";
+                query = insert + values;
+
+                statement = conn.prepareStatement(query);
+                statement.setFloat(1, salary);
+                statement.setString(2, email);
+                statement.setString(3, address);
+                statement.setString(4, fname);
+                statement.setString(5, lname);
+                statement.setString(6, hiredBy);
+                statement.executeUpdate();
+                System.out.println("Employee Added to Database.");
+                break;
+
+            case 2:
+                System.out.println("Enter EmployeeID");
+                EmployeeID = in.nextInt();
+                in.nextLine();
+                query = "DELETE FROM EMPLOYEE WHERE EmployeeID = ?;";
+                statement = conn.prepareStatement(query);
+                statement.setInt(1, EmployeeID);
+                statement.executeUpdate();
+                System.out.println("Employee Removed.");
+        }
+    }
+
+    public static void editOwner(Connection conn) throws SQLException {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Select action:");
+        System.out.println("\t1. Add Owner");
+        System.out.println("\t2. Remove Owner");
+
+        int num = in.nextInt();
+        in.nextLine();
+
+        // create variables used for query creation
+        PreparedStatement statement;
+        String query, insert, values;
+        String email, fname, lname;
+
+        switch(num) {
+
+            case 1:
+                // Get employee data
+                System.out.println("Enter Email");
+                email = in.nextLine();
+                ;
+                System.out.println("Enter First Name");
+                fname = in.nextLine();
+                System.out.println("Enter Last Name");
+                lname = in.nextLine();
+
+                insert = "INSERT INTO OWNER ";
+                values = "VALUES (?, ?, ?);";
+                query = insert + values;
+
+                statement = conn.prepareStatement(query);
+                statement.setString(1, email);
+                statement.setString(2, fname);
+                statement.setString(3, lname);
+                statement.executeUpdate();
+                System.out.println("Owner Added to Database.");
+                break;
+
+            case 2:
+                System.out.println("Enter Email");
+                email = in.nextLine();
+                query = "DELETE FROM OWNER WHERE Email = ?;";
+                statement = conn.prepareStatement(query);
+                statement.setString(1, email);
+                statement.executeUpdate();
+                break;
+        }
+    }
+
+    public static void displayInternal(Connection conn) throws SQLException {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Select display:");
+        System.out.println("\t1. Patron");
+        System.out.println("\t2. Employees");
+        System.out.println("\t3. Owner");
+
+        int num = in.nextInt();
+        in.nextLine();
+
+        // create variables used for query creation
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        String query;
+
+        switch(num) {
+
+            case 1:
+                // Get patrons
+                query = "SELECT * FROM PATRON;";
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
+
+            case 2:
+                // Get employees
+                query = "SELECT * FROM EMPLOYEE;";
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
+
+            case 3:
+                // Get owner
+                query = "SELECT * FROM OWNER;";
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
+        }
+
+        displayResultSet(result, statement, conn);
+    }
 
     public static void usefulReports(Connection conn) throws SQLException {
 
         System.out.println("Select report:\n");
         System.out.println("\t1. Track by ARTIST released before YEAR");
-        System.out.println("\t2. Number of albums checked out by a single patron");
-        System.out.println("\t3. Most popular actor in the database");
-        System.out.println("\t4. Most listened to artist in the database");
-        System.out.println("\t5. Patron who has checked out the most videos");
+        System.out.println("\t2. Patron who has checked out the most videos");
 
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
@@ -747,70 +1173,14 @@ public class Database {
                 where = "WHERE MEDIA.MediaID = TRACKS.TrackID AND TRACKS.Artist = PEOPLE.PersonID AND PEOPLE.Fname = ? AND PEOPLE.Lname = ? AND Year < ?;";
                 query = select + from + where;
 
-                try {
-                    statement = conn.prepareStatement(query);
-                    statement.setString(1, fname);
-                    statement.setString(2, lname);
-                    statement.setInt(3, year);
-
-                    result = statement.executeQuery();
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
+                statement = conn.prepareStatement(query);
+                statement.setString(1, fname);
+                statement.setString(2, lname);
+                statement.setInt(3, year);
+                result = statement.executeQuery();
                 break;
 
             case 2:
-
-                // Find the total number of albums checked out by a single patron
-                System.out.println("Enter patron email:");
-                String email = in.nextLine();
-                select = "SELECT COUNT(DISTINCT TRACKS.AlbumID) AS Albums ";
-                from = "FROM MEDIABORROWED, MEDIA, TRACKS ";
-                where = "WHERE MEDIABORROWED.CheckedOutBy = ? AND MEDIABORROWED.MediaID = MEDIA.MediaID AND MEDIA.MediaID = TRACKS.TrackID;";
-                query = select + from + where;
-
-                try {
-
-                    statement = conn.prepareStatement(query);
-                    statement.setString(1, email);
-                    result = statement.executeQuery();
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-                break;
-
-            case 3:
-
-                // Most popular actor in the database
-                select = "SELECT PEOPLE.Fname, PEOPLE.Lname, COUNT(PEOPLE.PersonID) as Occurrence ";
-                from = "FROM MEDIABORROWED, MEDIA, MOVIES, PEOPLE ";
-                where = "WHERE MEDIABORROWED.MediaID = MEDIA.MediaID AND MEDIA.MediaID = MOVIES.MovieID AND MOVIES.Actor = PEOPLE.PersonID ";
-                group = "GROUP BY PEOPLE.PersonID ";
-                order = "ORDER BY Occurrence DESC ";
-                limit = "LIMIT 1;";
-                query = select + from + where + group + order + limit;
-
-                try {
-
-                    statement = conn.prepareStatement(query);
-                    result = statement.executeQuery();
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-                break;
-
-            case 4:
-
-                // Most listened to artist in the database
-                break;
-
-            case 5:
 
                 // Patron who has checked out the most videos
                 select = "SELECT PATRON.*, COUNT(PATRON.Email) as Videos";
@@ -821,21 +1191,13 @@ public class Database {
                 limit = "LIMIT 1;";
 
                 query = select + from + where + group + order + limit;
-
-                try {
-                    statement = conn.prepareStatement(query);
-                    result = statement.executeQuery();
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
                 break;
         }
 
         // print result set
         displayResultSet(result, statement, conn);
-
-        in.close();
+        
     }
 }
