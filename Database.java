@@ -1,14 +1,14 @@
 package osu.cse3241;
 
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-import java.sql.DatabaseMetaData;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.*;
+        import java.sql.PreparedStatement;
+        import java.sql.DriverManager;
+        import java.sql.DatabaseMetaData;
+        import java.sql.Connection;
+        import java.sql.ResultSet;
+        import java.sql.ResultSetMetaData;
+        import java.sql.SQLException;
+        import java.sql.Statement;
+        import java.util.*;
 
 
 public class Database {
@@ -124,7 +124,7 @@ public class Database {
         System.out.println("Media Added to Database.");
 
         // Get MediaID
-        query = "SELECT MediaID FROM MEDIA WHERE title = ? AND ReleaseDate = ? AND genre = ? AND type = ?;";
+        query = "SELECT MediaID FROM MEDIA WHERE title = ? AND ReleaseDate = ? AND genre = ?;";
         statement = conn.prepareStatement(query);
         statement.setString(1, title);
         statement.setString(2, date);
@@ -140,12 +140,12 @@ public class Database {
         System.out.println(conn);
 
         // display menu
-    	System.out.println("Select Option:\n");
-    	System.out.println("\t1. Search database");
-    	System.out.println("\t2. Add new media item to database");
-    	System.out.println("\t3. Order items");
-    	System.out.println("\t4. Edit records");
-    	System.out.println("\t5. Useful reports");
+        System.out.println("Select Option:\n");
+        System.out.println("\t1. Search database");
+        System.out.println("\t2. Add new media item to database");
+        System.out.println("\t3. Order items");
+        System.out.println("\t4. Edit records");
+        System.out.println("\t5. Useful reports");
 
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
@@ -296,7 +296,7 @@ public class Database {
         in.close();
     }
 
-    public static void addItem(Connection conn) throws SQLException {
+    public static int addItem(Connection conn) throws SQLException {
 
         System.out.println("Select Add:\n");
         System.out.println("\t1. Add Track");
@@ -313,7 +313,7 @@ public class Database {
         String query, insert, values;
         String artistFname, artistLname, directorFname, directorLname, actorFname, actorLname, authorFname, authorLname,
                 title, date, genre, length, inAlbum, albumTitle = null, bookType, bookLength = null, moreActors = "y";
-        int artistPersonID, directorPersonID, actorPersonID, authorPersonID, MediaID, pages;
+        int artistPersonID, directorPersonID, actorPersonID, authorPersonID, MediaID = 0, pages;
         float rating;
 
         switch (num) {
@@ -493,8 +493,8 @@ public class Database {
                 break;
         }
 
-        // print result set
         in.close();
+        return MediaID;
     }
 
     public static void orderItem(Connection conn) throws SQLException {
@@ -504,10 +504,15 @@ public class Database {
         PreparedStatement statement;
         String query, insert, values;
         String email, choice, title, date, genre, type, arrival;
-        int MediaID, barcode, copies;
+        int MediaID, copies;
 
         System.out.println("Enter Purchased By Email");
         email = in.nextLine();
+        System.out.println("Enter number of copies");
+        copies = in.nextInt();
+        in.nextLine();
+        System.out.println("Enter arrival date (DD-MM-YYYY)");
+        arrival = in.nextLine();
         System.out.println("Does the Media already exist in the Database (y/n)?");
         choice = in.nextLine();
 
@@ -516,22 +521,8 @@ public class Database {
             MediaID = in.nextInt();
             in.nextLine();
         } else {
-            System.out.println("Enter media title");
-            title = in.nextLine();
-            System.out.println("Enter media Release Date (DD-MM-YYYY)");
-            date = in.nextLine();
-            System.out.println("Enter media");
-            genre = in.nextLine();
-            MediaID = insertIntoMedia(conn, title, date, genre);
+            MediaID = addItem(conn);
         }
-
-        System.out.println("Enter number of copies");
-        copies = in.nextInt();
-        in.nextInt();
-        System.out.println("Physical or digital copies (p/d)?");
-        type = in.nextLine();
-        System.out.println("Enter arrival date (DD-MM-YYY)");
-        arrival = in.nextLine();
 
         insert = "INSERT INTO MEDIABOUGHT ";
         values = "VALUES (?, ?, ?, ?)";
@@ -544,51 +535,41 @@ public class Database {
         statement.setString(4, arrival);
         statement.executeUpdate();
         System.out.println("Order placed");
-
-        for(int i = 0; i < copies; i++) {
-            if(type.equals("p")){
-                System.out.println("Enter barcode");
-                barcode = in.nextInt();
-                in.nextLine();
-                System.out.println("Enter location");
-                location
-            }
-        }
     }
 
     public static void editItem(Connection conn) throws SQLException {
 
-    	Scanner in = new Scanner(System.in);
-		PreparedStatement statement = null;
-		ResultSet result = null;
-		int index = 1;
+        Scanner in = new Scanner(System.in);
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        int index = 1;
 
-		System.out.println("Enter artist first name:");
-    	String Fname = in.nextLine();
-		System.out.println("Enter artist last name:");
-		String Lname = in.nextLine();
+        System.out.println("Enter artist first name:");
+        String Fname = in.nextLine();
+        System.out.println("Enter artist last name:");
+        String Lname = in.nextLine();
 
-		String retrieveData = "SELECT * FROM PEOPLE WHERE Fname = ? and Lname = ?;";
-		statement = conn.prepareStatement(retrieveData);
-		statement.setString(1, Fname);
-		statement.setString(2, Lname);
+        String retrieveData = "SELECT * FROM PEOPLE WHERE Fname = ? and Lname = ?;";
+        statement = conn.prepareStatement(retrieveData);
+        statement.setString(1, Fname);
+        statement.setString(2, Lname);
         result = statement.executeQuery();
 
         String oldPersonID = result.getString("PersonID");
 
-		String query = "UPDATE PEOPLE SET PersonID = ?, Fname = ?, Lname = ? WHERE Fname = ? AND Lname = ?;";
+        String query = "UPDATE PEOPLE SET PersonID = ?, Fname = ?, Lname = ? WHERE Fname = ? AND Lname = ?;";
 
-		System.out.println("Enter new PersonID, or hit enter to skip:");
-		String newPersonID = in.nextLine();
-		System.out.println("Enter new first name, or hit enter to skip:");
-		String newFname = in.nextLine();
-		System.out.println("Enter new first name, or hit enter to skip:");
-		String newLname = in.nextLine();
+        System.out.println("Enter new PersonID, or hit enter to skip:");
+        String newPersonID = in.nextLine();
+        System.out.println("Enter new first name, or hit enter to skip:");
+        String newFname = in.nextLine();
+        System.out.println("Enter new first name, or hit enter to skip:");
+        String newLname = in.nextLine();
 
         statement = conn.prepareStatement(query);
 
         // Append Update
-		if(!newPersonID.isEmpty()){
+        if(!newPersonID.isEmpty()){
             statement.setString(1, newPersonID);
         } else {
             statement.setString(1, oldPersonID);
@@ -608,7 +589,7 @@ public class Database {
         statement.setString(5, Lname);
         statement.executeUpdate();
 
-	}
+    }
 
     public static void usefulReports(Connection conn) throws SQLException {
 
@@ -705,8 +686,8 @@ public class Database {
 
             case 4:
 
-            	// Most listened to artist in the database
-				break;
+                // Most listened to artist in the database
+                break;
 
             case 5:
 
@@ -737,6 +718,3 @@ public class Database {
         in.close();
     }
 }
-
-
-
