@@ -497,13 +497,13 @@ public class Database {
                 while(moreActors.equals("y")){
                     System.out.println("Enter Actor First Name");
                     actorFname = in.nextLine();
-                    System.out.println("Enter Actor First Name");
+                    System.out.println("Enter Actor Last Name");
                     actorLname = in.nextLine();
 
                     actorPersonID = checkOrAddPerson(conn, actorFname, actorLname, "NULL");
 
                     insert = "INSERT INTO ACTORS ";
-                    values = "VALUES (?, ?);";
+                    values = "VALUES (NULL, ?, ?);";
                     query = insert + values;
 
                     statement = conn.prepareStatement(query);
