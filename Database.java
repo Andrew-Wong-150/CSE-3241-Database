@@ -1146,6 +1146,8 @@ public class Database {
         System.out.println("Select report:\n");
         System.out.println("\t1. Track by ARTIST released before YEAR");
         System.out.println("\t2. Patron who has checked out the most videos");
+        System.out.println("\t3. Display checked out items by patron");
+
 
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
@@ -1192,6 +1194,18 @@ public class Database {
 
                 query = select + from + where + group + order + limit;
                 statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
+
+            case 3:
+                System.out.println("Enter patron email: ");
+                String email = in.nextLine();
+                select = "SELECT MEDIA.* ";
+                from = "FROM MEDIA, MEDIABORROWED ";
+                where = "WHERE MEDIABORROWED.CheckedOutBy = ? AND MEDIABORROWED.MediaID = MEDIA.MediaID;";
+                query = select + from + where;
+                statement = conn.prepareStatement(query);
+                statement.setString(1, email);
                 result = statement.executeQuery();
                 break;
         }
