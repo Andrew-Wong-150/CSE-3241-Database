@@ -1185,7 +1185,7 @@ public class Database {
             case 2:
 
                 // Patron who has checked out the most videos
-                select = "SELECT PATRON.*, COUNT(PATRON.Email) as Videos";
+                select = "SELECT PATRON.*, COUNT(PATRON.Email) as Videos ";
                 from = "FROM PATRON, MEDIABORROWED, MEDIA, MOVIES ";
                 where = "WHERE MEDIABORROWED.CheckedOutBy = PATRON.Email AND MEDIABORROWED.MediaID = MEDIA.MediaID AND MEDIA.MediaID = MOVIES.MovieID ";
                 group = "GROUP BY PATRON.Email ";
