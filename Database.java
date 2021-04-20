@@ -65,7 +65,6 @@ public class Database {
             if (result != null) {
                 result.close();
                 statement.close();
-                conn.close();
             }
         }
 
@@ -145,38 +144,45 @@ public class Database {
         System.out.println("\t1. Search database");
         System.out.println("\t2. Add new media item to database");
         System.out.println("\t3. Order items");
-        System.out.println("\t4. Edit media");
-        System.out.println("\t5. Add or Edit artist/actor/author/director");
-        System.out.println("\t6. Edit Patron");
-        System.out.println("\t7. Useful reports");
+        System.out.println("\t4. Activate items");
+        System.out.println("\t5. Edit media");
+        System.out.println("\t6. Add or Edit artist/actor/author/director");
+        System.out.println("\t7. Hire employee");
+        System.out.println("\t8. Edit patron");
+        System.out.println("\t9. Useful reports");
 
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
 
-        try {
-            switch (num) {
-                case 1:
-                    searchItem(conn);
-                    break;
-                case 2:
-                    addItem(conn);
-                    break;
-                case 3:
-                    orderItem(conn);
-                    break;
-                case 4:
-                    editItem(conn);
-                    break;
-                case 5:
-                    editPerson(conn);
-                    break;
+        while(true) {
+
+            try {
+                switch (num) {
+                    case 1:
+                        searchItem(conn);
+                        break;
+                    case 2:
+                        addItem(conn);
+                        break;
+                    case 3:
+                        orderItem(conn);
+                        break;
+                    case 4:
+                        activateItem(conn);
+                        break;
+                    case 5:
+
+                        break;
+                    case 6:
+                        editPerson(conn);
+                        break;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+
             }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-
         }
-
     }
 
     public static void searchItem(Connection conn) throws SQLException {
@@ -398,7 +404,7 @@ public class Database {
                 // Add media
                 MediaID = insertIntoMedia(conn, title, date, genre);
 
-                // Add track
+                // Add movie
                 insert = "INSERT INTO MOVIES ";
                 values = "VALUES (?, ?, ?, ?);";
                 query = insert + values;
@@ -551,6 +557,77 @@ public class Database {
         System.out.println("Order placed");
     }
 
+    public static void activateItem(Connection conn) throws SQLException {
+
+        Scanner in = new Scanner(System.in);
+
+        // create variables used for query creation
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        String query;
+        int numActivate = 0;
+
+        // Find Media Bought information
+        System.out.println("Enter mediaID:");
+        int mediaID = in.nextInt();
+        in.nextLine();
+
+        query = "SELECT * FROM MEDIABOUGHT WHERE MediaID = ?;";
+
+        statement = conn.prepareStatement(query);
+        statement.setInt(1, mediaID);
+
+        result = statement.executeQuery();
+        result.next();
+        numActivate = result.getInt(3);
+        System.out.println(numActivate);
+
+        // Activate items by adding to digital or physical
+        System.out.println("Activate (1) digital or (2) physical item:");
+        int choice = in.nextInt();
+        in.nextLine();
+
+        switch (choice) {
+            case 1:
+                query = "INSERT INTO DIGITAL VALUES (?,?);";
+                for (int i = 0; i < numActivate; i++) {
+                    try {
+                        statement = conn.prepareStatement(query);
+                        statement.setInt(2, mediaID);
+
+                        System.out.println("Enter License: ");
+                        String license = in.nextLine();
+                        statement.setString(1, license);
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                break;
+            case 2:
+                query = "INSERT INTO PHYSICAL VALUES (?,?,?);";
+                for (int i = 0; i < numActivate; i++) {
+                    try {
+                        statement = conn.prepareStatement(query);
+                        statement.setInt(2, mediaID);
+
+                        System.out.println("Enter Barcode: ");
+                        int barcode = in.nextInt();
+                        in.nextLine();
+                        System.out.println("Enter location: ");
+                        String location = in.nextLine();
+
+                        statement.setInt(1, barcode);
+                        statement.setString(3, location);
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                break;
+        }
+    }
+
     public static void editItem(Connection conn) throws SQLException {
 
         System.out.println("Type of item to edit:\n");
@@ -632,6 +709,8 @@ public class Database {
                 statement.close();
         }
     }
+
+    public static void hireEmployee(Connection conn) {}
 
     public static void usefulReports(Connection conn) throws SQLException {
 
