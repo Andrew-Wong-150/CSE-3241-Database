@@ -47,15 +47,17 @@ public class Database {
         try {
             ResultSetMetaData metadata = result.getMetaData();
             int column = metadata.getColumnCount();
+            for (int i = 1; i <= column; i++) {
+                System.out.print(metadata.getColumnName(i) + "\t");
+            }
+            System.out.println("\n");
             while (result.next()) {
                 for (int i = 1; i <= column; i++) {
-                    if (i > 1) System.out.print(",  ");
                     String columnValue = result.getString(i);
-                    System.out.print(columnValue + " " + metadata.getColumnName(i));
+                    System.out.print(columnValue + "\t");
                 }
-                System.out.println("");
             }
-
+            System.out.println("\n");
         } catch (SQLException e) {
             e.printStackTrace();
 
@@ -85,7 +87,7 @@ public class Database {
 
         // Add Person if does not exist
         if(!result.next()) {
-            query = "INSERT INTO PEOPLE VALUES (NULL, ?, ?)";
+            query = "INSERT INTO PEOPLE VALUES (NULL, ?, ?, NULL)";
             statement = conn.prepareStatement(query);
             statement.setString(1, fname);
             statement.setString(2, lname);
@@ -105,7 +107,7 @@ public class Database {
         return result.getInt(1);
     }
 
-    public static int insertIntoMedia(Connection conn, String title, String date, String genre, String type) throws SQLException {
+    public static int insertIntoMedia(Connection conn, String title, String date, String genre) throws SQLException {
 
         // Create variables
         String query = null;
@@ -113,12 +115,11 @@ public class Database {
         ResultSet result;
 
         // Insert into MEDIA
-        query = "INSERT INTO MEDIA VALUES (NULL, ?, ?, ?, ?)";
+        query = "INSERT INTO MEDIA VALUES (NULL, ?, ?, ?)";
         statement = conn.prepareStatement(query);
         statement.setString(1, title);
         statement.setString(2, date);
         statement.setString(3, genre);
-        statement.setString(4, type);
         statement.executeUpdate();
         System.out.println("Media Added to Database.");
 
@@ -128,7 +129,6 @@ public class Database {
         statement.setString(1, title);
         statement.setString(2, date);
         statement.setString(3, genre);
-        statement.setString(4, type);
         result = statement.executeQuery();
         result.next();
         return result.getInt(1);
@@ -159,6 +159,7 @@ public class Database {
                     addItem(conn);
                     break;
                 case 3:
+                    orderItem(conn);
                     break;
                 case 4:
                     editItem(conn);
@@ -178,8 +179,15 @@ public class Database {
     public static void searchItem(Connection conn) throws SQLException {
 
         System.out.println("Select Search:\n");
-        System.out.println("\t1. Search by artist");
-        System.out.println("\t2. Search by track");
+        System.out.println("\t1. Display all artists");
+        System.out.println("\t2. Display all actors");
+        System.out.println("\t3. Display all directors");
+        System.out.println("\t4. Display all authors");
+        System.out.println("\t5. Display all tracks");
+        System.out.println("\t6. Display all movies");
+        System.out.println("\t7. Display all books");
+        System.out.println("\t8. Search by title");
+
 
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
@@ -194,76 +202,96 @@ public class Database {
 
             case 1:
 
-                // Search by artist
-                System.out.println("Enter artist first name:");
-                String fname = in.nextLine();
-                System.out.println("Enter artist last name:");
-                String lname = in.nextLine();
-
-                select = "SELECT MEDIA.*, TRACKS.* ";
+                // Display all artist
+                select = "SELECT PEOPLE.* ";
                 from = "FROM MEDIA, TRACKS, PEOPLE ";
-                where = "WHERE MEDIA.MediaID = TRACKS.TrackID AND TRACKS.Artist = PEOPLE.PersonID AND PEOPLE.Fname = ? AND PEOPLE.Lname = ?;";
+                where = "WHERE MEDIA.MediaID = TRACKS.TrackID AND TRACKS.Artist = PEOPLE.PersonID;";
                 query = select + from + where;
-
-                try {
-                    statement = conn.prepareStatement(query);
-                    statement.setString(1, fname);
-                    statement.setString(2, lname);
-
-                    result = statement.executeQuery();
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
                 break;
 
             case 2:
 
-                // Search by track
-                System.out.println("Enter track title:");
-                String track = in.nextLine();
-                select = "SELECT MEDIA.*, TRACKS.* ";
-                from = "FROM MEDIA, TRACKS ";
-                where = "WHERE MEDIA.Title = ? AND MEDIA.MediaID = TRACKS.TrackID;";
+                // Display all actor
+                select = "SELECT PEOPLE.* ";
+                from = "FROM ACTORS, PEOPLE ";
+                where = "WHERE ACTORS.ActorID = PEOPLE.PersonID;";
                 query = select + from + where;
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
 
-                try {
+            case 3:
 
-                    statement = conn.prepareStatement(query);
-                    statement.setString(1, track);
-                    result = statement.executeQuery();
+                // Display all actor
+                select = "SELECT PEOPLE.* ";
+                from = "FROM MEDIA, MOVIES, PEOPLE ";
+                where = "WHERE MEDIA.MediaID = MOVIES.MovieID AND MOVIES.Director = PEOPLE.PersonID;";
+                query = select + from + where;
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
 
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+            case 4:
 
+                // Display all author
+                select = "SELECT PEOPLE.* ";
+                from = "FROM MEDIA, BOOKS, PEOPLE ";
+                where = "WHERE MEDIA.MediaID = BOOKS.BookID AND BOOKS.Author = PEOPLE.PersonID;";
+                query = select + from + where;
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
+
+            case 5:
+
+                // Display all tracks
+                select = "SELECT * ";
+                from = "FROM TRACKS;";
+                query = select + from;
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
+
+            case 6:
+
+                // Display all movies
+                select = "SELECT * ";
+                from = "FROM MOVIES;";
+                query = select + from;
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
+
+            case 7:
+
+                // Display all books
+                select = "SELECT * ";
+                from = "FROM BOOKS;";
+                query = select + from;
+                statement = conn.prepareStatement(query);
+                result = statement.executeQuery();
+                break;
+
+            case 8:
+
+                // Search by title
+                System.out.println("Enter media title");
+                String title = in.nextLine();
+
+                select = "SELECT Media.* ";
+                from = "FROM MEDIA ";
+                where = "WHERE MEDIA.Title = ?;";
+                query = select + from + where;
+                statement = conn.prepareStatement(query);
+                statement.setString(1, title);
+                result = statement.executeQuery();
                 break;
         }
 
         // print result set
-        try {
-            ResultSetMetaData metadata = result.getMetaData();
-            int column = metadata.getColumnCount();
-            while (result.next()) {
-                for (int i = 1; i <= column; i++) {
-                    if (i > 1) System.out.print(",  ");
-                    String columnValue = result.getString(i);
-                    System.out.print(columnValue + " " + metadata.getColumnName(i));
-                }
-                System.out.println("");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        } finally {
-            if (result != null) {
-                result.close();
-                statement.close();
-                conn.close();
-            }
-        }
+        displayResultSet(result, statement, conn);
 
         in.close();
     }
@@ -283,16 +311,16 @@ public class Database {
         // create variables used for query creation
         PreparedStatement statement;
         String query, insert, values;
-        String artistFname, artistLname, directorFname, directorLname, starFname, starLname, authorFname, authorLname,
-                title, date, genre, length, inAlbum, albumTitle = null, bookType, bookLength = null;
-        int artistPersonID, directorPersonID, starPersonID, authorPersonID, MediaID, pages;
+        String artistFname, artistLname, directorFname, directorLname, actorFname, actorLname, authorFname, authorLname,
+                title, date, genre, length, inAlbum, albumTitle = null, bookType, bookLength = null, moreActors = "y";
+        int artistPersonID, directorPersonID, actorPersonID, authorPersonID, MediaID, pages;
         float rating;
 
         switch (num) {
 
             case 1:
 
-                // Get Track data
+                // Get track data
                 System.out.println("Enter Track Title");
                 title = in.nextLine();
                 System.out.println("Enter Track Release Date (DD-MM-YYYY)");
@@ -313,13 +341,13 @@ public class Database {
                     albumTitle = in.nextLine();
                 }
 
-                // Add Media
-                MediaID = insertIntoMedia(conn, title, date, genre, "Track");
+                // Add media
+                MediaID = insertIntoMedia(conn, title, date, genre);
 
                 // Ensure artist is in database
                 artistPersonID = checkOrAddPerson(conn, artistFname, artistLname);
 
-                // Add Track
+                // Add track
                 insert = "INSERT INTO TRACKS ";
                 values = "VALUES (?, ?, ?, ?);";
                 query = insert + values;
@@ -343,14 +371,14 @@ public class Database {
 
             case 2:
 
-                // Get Movie data
+                // Get movie data
                 System.out.println("Enter Movie Title");
                 title = in.nextLine();
                 System.out.println("Enter Movie Release Date (DD-MM-YYYY)");
                 date = in.nextLine();
                 System.out.println("Enter Movie Genre");
                 genre = in.nextLine();
-                System.out.println("Enter Movie Length");
+                System.out.println("Enter Movie Length (HH:SS:MM)");
                 length = in.nextLine();
                 System.out.println("Enter Movie Rating");
                 rating = in.nextFloat();
@@ -359,31 +387,48 @@ public class Database {
                 directorFname = in.nextLine();
                 System.out.println("Enter Director Last Name");
                 directorLname = in.nextLine();
-                System.out.println("Enter Star First Name");
-                starFname = in.nextLine();
-                System.out.println("Enter Star Last Name");
-                starLname = in.nextLine();
+
 
                 // Ensure artist is in database
                 directorPersonID = checkOrAddPerson(conn, directorFname, directorLname);
-                starPersonID = checkOrAddPerson(conn, starFname, starLname);
 
-                // Add Media
-                MediaID = insertIntoMedia(conn, title, date, genre, "Movie");
+                // Add media
+                MediaID = insertIntoMedia(conn, title, date, genre);
 
-                // Add Track
+                // Add track
                 insert = "INSERT INTO MOVIES ";
-                values = "VALUES (?, ?, ?, ?, ?);";
+                values = "VALUES (?, ?, ?, ?);";
                 query = insert + values;
 
                 statement = conn.prepareStatement(query);
                 statement.setInt(1, MediaID);
                 statement.setString(2, length);
                 statement.setFloat(3, rating);
-                statement.setInt(4, starPersonID);
-                statement.setInt(3, directorPersonID);
+                statement.setInt(4, directorPersonID);
                 statement.executeUpdate();
-                System.out.println("Movie Added to Database");
+                System.out.println("Movie Added to Database\n");
+
+                // Add actors
+                while(moreActors.equals("y")){
+                    System.out.println("Enter Actor First Name");
+                    actorFname = in.nextLine();
+                    System.out.println("Enter Actor First Name");
+                    actorLname = in.nextLine();
+
+                    actorPersonID = checkOrAddPerson(conn, actorFname, actorLname);
+
+                    insert = "INSERT INTO ACTORS ";
+                    values = "VALUES (?, ?);";
+                    query = insert + values;
+
+                    statement = conn.prepareStatement(query);
+                    statement.setInt(1, actorPersonID);
+                    statement.setInt(2, MediaID);
+                    statement.executeUpdate();
+
+                    System.out.println("Add another actor (y/n)?");
+                    moreActors = in.nextLine();
+                }
 
                 break;
 
@@ -407,7 +452,7 @@ public class Database {
                 authorPersonID = checkOrAddPerson(conn, authorFname, authorLname);
 
                 // Add Media
-                MediaID = insertIntoMedia(conn, title, date, genre, "Movie");
+                MediaID = insertIntoMedia(conn, title, date, genre);
 
                 // Add Book
                 insert = "INSERT INTO BOOKS ";
@@ -450,6 +495,65 @@ public class Database {
 
         // print result set
         in.close();
+    }
+
+    public static void orderItem(Connection conn) throws SQLException {
+
+        Scanner in = new Scanner(System.in);
+
+        PreparedStatement statement;
+        String query, insert, values;
+        String email, choice, title, date, genre, type, arrival;
+        int MediaID, barcode, copies;
+
+        System.out.println("Enter Purchased By Email");
+        email = in.nextLine();
+        System.out.println("Does the Media already exist in the Database (y/n)?");
+        choice = in.nextLine();
+
+        if(choice.equals("y")){
+            System.out.println("Enter MediaID");
+            MediaID = in.nextInt();
+            in.nextLine();
+        } else {
+            System.out.println("Enter media title");
+            title = in.nextLine();
+            System.out.println("Enter media Release Date (DD-MM-YYYY)");
+            date = in.nextLine();
+            System.out.println("Enter media");
+            genre = in.nextLine();
+            MediaID = insertIntoMedia(conn, title, date, genre);
+        }
+
+        System.out.println("Enter number of copies");
+        copies = in.nextInt();
+        in.nextInt();
+        System.out.println("Physical or digital copies (p/d)?");
+        type = in.nextLine();
+        System.out.println("Enter arrival date (DD-MM-YYY)");
+        arrival = in.nextLine();
+
+        insert = "INSERT INTO MEDIABOUGHT ";
+        values = "VALUES (?, ?, ?, ?)";
+        query = insert + values;
+
+        statement = conn.prepareStatement(query);
+        statement.setInt(1, MediaID);
+        statement.setString(2, email);
+        statement.setInt(3, copies);
+        statement.setString(4, arrival);
+        statement.executeUpdate();
+        System.out.println("Order placed");
+
+        for(int i = 0; i < copies; i++) {
+            if(type.equals("p")){
+                System.out.println("Enter barcode");
+                barcode = in.nextInt();
+                in.nextLine();
+                System.out.println("Enter location");
+                location
+            }
+        }
     }
 
     public static void editItem(Connection conn) throws SQLException {
