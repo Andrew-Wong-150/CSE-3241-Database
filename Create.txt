@@ -73,7 +73,6 @@ CREATE TABLE MOVIES (
     MovieID  INTEGER    NOT NULL,
     Length   TIME       NOT NULL,
     Rating   FLOAT (53) NOT NULL,
-    Actor    INTEGER    NOT NULL,
     Director INTEGER    NOT NULL,
     PRIMARY KEY (
         MovieID
@@ -83,14 +82,31 @@ CREATE TABLE MOVIES (
     )
     REFERENCES MEDIA (MediaID),
     FOREIGN KEY (
-        Actor
+        MovieID
     )
-    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE,
+    REFERENCES ACTORS (MovieID) ON UPDATE CASCADE,
     FOREIGN KEY (
         Director
     )
     REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE
 );
+
+CREATE TABLE ACTORS (
+    ActorID INTEGER NOT NULL,
+    MovieID INTEGER NOT NULL,
+    PRIMARY KEY (
+        ActorID
+    ),
+    FOREIGN KEY (
+        MovieID
+    )
+    REFERENCES MOVIES (MovieID) ON UPDATE CASCADE,
+    FOREIGN KEY (
+        ActorID
+    )
+    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE
+);
+
 
 CREATE TABLE TRACKS (
     TrackID    INTEGER      NOT NULL,
@@ -154,7 +170,8 @@ CREATE TABLE AUDIOBOOK (
 CREATE TABLE PEOPLE (
     PersonID INTEGER      PRIMARY KEY,
     Fname    VARCHAR (15) NOT NULL,
-    Lname    VARCHAR (15) NOT NULL
+    Lname    VARCHAR (15) NOT NULL,
+    Bday     DATE
 );
 
 CREATE TABLE MEDIABORROWED (
