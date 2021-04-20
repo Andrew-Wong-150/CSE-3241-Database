@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Database {
 
-    private static String DATABASE = "test.db";
+    private static String DATABASE = "populated.db";
 
     public static Connection initializeDB(String databaseFileName) {
         /**
@@ -1207,6 +1207,12 @@ public class Database {
                 statement = conn.prepareStatement(query);
                 statement.setString(1, email);
                 result = statement.executeQuery();
+
+                if(!result.next()){
+                    System.out.println("No Movies Checked Out");
+                    result.beforeFirst();
+                    return;
+                }
                 break;
         }
 
