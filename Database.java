@@ -1,14 +1,14 @@
 package osu.cse3241;
 
-        import java.sql.PreparedStatement;
-        import java.sql.DriverManager;
-        import java.sql.DatabaseMetaData;
-        import java.sql.Connection;
-        import java.sql.ResultSet;
-        import java.sql.ResultSetMetaData;
-        import java.sql.SQLException;
-        import java.sql.Statement;
-        import java.util.*;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.DatabaseMetaData;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.*;
 
 
 public class Database {
@@ -71,7 +71,7 @@ public class Database {
 
     }
 
-    public static int checkOrAddPerson(Connection conn, String fname, String lname) throws SQLException {
+    public static int checkOrAddPerson(Connection conn, String fname, String lname, String bday) throws SQLException {
 
         // Create variables
         String query = null;
@@ -87,10 +87,11 @@ public class Database {
 
         // Add Person if does not exist
         if(!result.next()) {
-            query = "INSERT INTO PEOPLE VALUES (NULL, ?, ?, NULL)";
+            query = "INSERT INTO PEOPLE VALUES (NULL, ?, ?, ?)";
             statement = conn.prepareStatement(query);
             statement.setString(1, fname);
             statement.setString(2, lname);
+            statement.setString(3, bday);
             statement.executeUpdate();
             System.out.println("Person Not Found. Adding to Database.");
         } else {
@@ -144,8 +145,10 @@ public class Database {
         System.out.println("\t1. Search database");
         System.out.println("\t2. Add new media item to database");
         System.out.println("\t3. Order items");
-        System.out.println("\t4. Edit records");
-        System.out.println("\t5. Useful reports");
+        System.out.println("\t4. Edit media");
+        System.out.println("\t5. Add or Edit artist/actor/author/director");
+        System.out.println("\t6. Edit Patron");
+        System.out.println("\t7. Useful reports");
 
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
@@ -165,7 +168,7 @@ public class Database {
                     editItem(conn);
                     break;
                 case 5:
-                    usefulReports(conn);
+                    editPerson(conn);
                     break;
             }
 
@@ -323,7 +326,7 @@ public class Database {
                 // Get track data
                 System.out.println("Enter Track Title");
                 title = in.nextLine();
-                System.out.println("Enter Track Release Date (DD-MM-YYYY)");
+                System.out.println("Enter Track Release Date (YYYY-MM-DD)");
                 date = in.nextLine();
                 System.out.println("Enter Track Genre");
                 genre = in.nextLine();
@@ -345,7 +348,7 @@ public class Database {
                 MediaID = insertIntoMedia(conn, title, date, genre);
 
                 // Ensure artist is in database
-                artistPersonID = checkOrAddPerson(conn, artistFname, artistLname);
+                artistPersonID = checkOrAddPerson(conn, artistFname, artistLname, "NULL");
 
                 // Add track
                 insert = "INSERT INTO TRACKS ";
@@ -374,7 +377,7 @@ public class Database {
                 // Get movie data
                 System.out.println("Enter Movie Title");
                 title = in.nextLine();
-                System.out.println("Enter Movie Release Date (DD-MM-YYYY)");
+                System.out.println("Enter Movie Release Date (YYYY-MM-DD)");
                 date = in.nextLine();
                 System.out.println("Enter Movie Genre");
                 genre = in.nextLine();
@@ -390,7 +393,7 @@ public class Database {
 
 
                 // Ensure artist is in database
-                directorPersonID = checkOrAddPerson(conn, directorFname, directorLname);
+                directorPersonID = checkOrAddPerson(conn, directorFname, directorLname, "NULL");
 
                 // Add media
                 MediaID = insertIntoMedia(conn, title, date, genre);
@@ -415,7 +418,7 @@ public class Database {
                     System.out.println("Enter Actor First Name");
                     actorLname = in.nextLine();
 
-                    actorPersonID = checkOrAddPerson(conn, actorFname, actorLname);
+                    actorPersonID = checkOrAddPerson(conn, actorFname, actorLname, "NULL");
 
                     insert = "INSERT INTO ACTORS ";
                     values = "VALUES (?, ?);";
@@ -437,7 +440,7 @@ public class Database {
                 // Get Book data
                 System.out.println("Enter Book Title");
                 title = in.nextLine();
-                System.out.println("Enter Book Release Date (DD-MM-YYYY)");
+                System.out.println("Enter Book Release Date (YYYY-MM-DD)");
                 date = in.nextLine();
                 System.out.println("Enter Book Genre");
                 genre = in.nextLine();
@@ -449,7 +452,7 @@ public class Database {
                 bookType = in.nextLine();
 
                 // Ensure author is in database
-                authorPersonID = checkOrAddPerson(conn, authorFname, authorLname);
+                authorPersonID = checkOrAddPerson(conn, authorFname, authorLname, "NULL");
 
                 // Add Media
                 MediaID = insertIntoMedia(conn, title, date, genre);
@@ -488,6 +491,7 @@ public class Database {
                 }
 
                 statement.executeUpdate();
+                statement.close();
                 System.out.println("Book Added to Database");
 
                 break;
@@ -505,13 +509,17 @@ public class Database {
         String query, insert, values;
         String email, choice, title, date, genre, type, arrival;
         int MediaID, copies;
+        float price;
 
         System.out.println("Enter Purchased By Email");
         email = in.nextLine();
         System.out.println("Enter number of copies");
         copies = in.nextInt();
         in.nextLine();
-        System.out.println("Enter arrival date (DD-MM-YYYY)");
+        System.out.println("Enter price per copy");
+        price = in.nextFloat();
+        in.nextLine();
+        System.out.println("Enter arrival date (YYYY-MM-DD)");
         arrival = in.nextLine();
         System.out.println("Does the Media already exist in the Database (y/n)?");
         choice = in.nextLine();
@@ -525,7 +533,7 @@ public class Database {
         }
 
         insert = "INSERT INTO MEDIABOUGHT ";
-        values = "VALUES (?, ?, ?, ?)";
+        values = "VALUES (?, ?, ?, ?, ?)";
         query = insert + values;
 
         statement = conn.prepareStatement(query);
@@ -533,62 +541,124 @@ public class Database {
         statement.setString(2, email);
         statement.setInt(3, copies);
         statement.setString(4, arrival);
+        statement.setFloat(5, price);
         statement.executeUpdate();
+        statement.close();
         System.out.println("Order placed");
     }
 
     public static void editItem(Connection conn) throws SQLException {
 
+        System.out.println("Select Option:\n");
+        System.out.println("\t1. Add");
+        System.out.println("\t2. Edit");
+
         Scanner in = new Scanner(System.in);
+        int num = in.nextInt();
+        in.nextLine();
+
+        String fname, lname, bday;
+        String query, update, set, where;
+        int MediaID;
         PreparedStatement statement = null;
-        ResultSet result = null;
-        int index = 1;
 
-        System.out.println("Enter artist first name:");
-        String Fname = in.nextLine();
-        System.out.println("Enter artist last name:");
-        String Lname = in.nextLine();
+        switch(num) {
 
-        String retrieveData = "SELECT * FROM PEOPLE WHERE Fname = ? and Lname = ?;";
-        statement = conn.prepareStatement(retrieveData);
-        statement.setString(1, Fname);
-        statement.setString(2, Lname);
-        result = statement.executeQuery();
+            case 1:
+                System.out.println("Enter person first name");
+                fname = in.nextLine();
+                System.out.println("Enter person last name:");
+                lname = in.nextLine();
+                System.out.println("Enter person birthday (YYYY-MM-DD):");
+                bday = in.nextLine();
 
-        String oldPersonID = result.getString("PersonID");
+                checkOrAddPerson(conn, fname, lname, bday);
+                break;
 
-        String query = "UPDATE PEOPLE SET PersonID = ?, Fname = ?, Lname = ? WHERE Fname = ? AND Lname = ?;";
+            case 2:
+                System.out.println("Enter person first name to update:");
+                fname = in.nextLine();
+                System.out.println("Enter person last name to update:");
+                lname = in.nextLine();
 
-        System.out.println("Enter new PersonID, or hit enter to skip:");
-        String newPersonID = in.nextLine();
-        System.out.println("Enter new first name, or hit enter to skip:");
-        String newFname = in.nextLine();
-        System.out.println("Enter new first name, or hit enter to skip:");
-        String newLname = in.nextLine();
+                MediaID = checkOrAddPerson(conn, fname, lname, "NULL");
+                System.out.println("Enter new first name:");
+                fname = in.nextLine();
+                System.out.println("Enter new last name:");
+                lname = in.nextLine();
+                System.out.println("Enter new bday:");
+                bday = in.nextLine();
 
-        statement = conn.prepareStatement(query);
+                update = "UPDATE PEOPLE ";
+                set = "SET fname = ?, lname = ?, bday = ? ";
+                where = "WHERE PersonID = ?";
+                query = update + set + where;
 
-        // Append Update
-        if(!newPersonID.isEmpty()){
-            statement.setString(1, newPersonID);
-        } else {
-            statement.setString(1, oldPersonID);
+                statement = conn.prepareStatement(query);
+                statement.setString(1, fname);
+                statement.setString(2, lname);
+                statement.setString(3, bday);
+                statement.setInt(4, MediaID);
+                statement.executeUpdate();
+                statement.close();
         }
-        if(!newFname.isEmpty()){
-            statement.setString(2, newFname);
-        } else {
-            statement.setString(2, Fname);
-        }
-        if(!newLname.isEmpty()){
-            statement.setString(3, newLname);
-        } else {
-            statement.setString(3, Lname);
-        }
+    }
 
-        statement.setString(4, Fname);
-        statement.setString(5, Lname);
-        statement.executeUpdate();
+    public static void editPerson(Connection conn) throws SQLException {
 
+        System.out.println("Select Option:\n");
+        System.out.println("\t1. Add");
+        System.out.println("\t2. Edit");
+
+        Scanner in = new Scanner(System.in);
+        int num = in.nextInt();
+        in.nextLine();
+
+        String fname, lname, bday;
+        String query, update, set, where;
+        int MediaID;
+        PreparedStatement statement = null;
+
+        switch(num) {
+
+            case 1:
+                System.out.println("Enter person first name");
+                fname = in.nextLine();
+                System.out.println("Enter person last name:");
+                lname = in.nextLine();
+                System.out.println("Enter person birthday (YYYY-MM-DD):");
+                bday = in.nextLine();
+
+                checkOrAddPerson(conn, fname, lname, bday);
+                break;
+
+            case 2:
+                System.out.println("Enter person first name to update:");
+                fname = in.nextLine();
+                System.out.println("Enter person last name to update:");
+                lname = in.nextLine();
+
+                MediaID = checkOrAddPerson(conn, fname, lname, "NULL");
+                System.out.println("Enter new first name:");
+                fname = in.nextLine();
+                System.out.println("Enter new last name:");
+                lname = in.nextLine();
+                System.out.println("Enter new bday:");
+                bday = in.nextLine();
+
+                update = "UPDATE PEOPLE ";
+                set = "SET fname = ?, lname = ?, bday = ? ";
+                where = "WHERE PersonID = ?";
+                query = update + set + where;
+
+                statement = conn.prepareStatement(query);
+                statement.setString(1, fname);
+                statement.setString(2, lname);
+                statement.setString(3, bday);
+                statement.setInt(4, MediaID);
+                statement.executeUpdate();
+                statement.close();
+        }
     }
 
     public static void usefulReports(Connection conn) throws SQLException {
