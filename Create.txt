@@ -1,4 +1,4 @@
-PRAGMA foreign_keys = ON;
+﻿PRAGMA foreign_keys = 'ON';
 
 CREATE TABLE OWNER (
     Email VARCHAR (30) NOT NULL,
@@ -62,46 +62,19 @@ CREATE TABLE PATRON (
 );
 
 CREATE TABLE MEDIA (
-    MediaID     VARCHAR (30) NOT NULL,
+    MediaID     INTEGER      PRIMARY KEY,
     Title       VARCHAR (30) NOT NULL,
     ReleaseDate DATE         NOT NULL,
     Genre       VARCHAR (30) NOT NULL,
-    PRIMARY KEY (
-        MediaID
-    )
-);
-
-CREATE TABLE PHYSICAL (
-    PhysicalID  VARCHAR (30) NOT NULL,
-    Location    VARCHAR (30) NOT NULL,
-    NumofCopies INT          NOT NULL,
-    PRIMARY KEY (
-        PhysicalID
-    ),
-    FOREIGN KEY (
-        PhysicalID
-    )
-    REFERENCES MEDIA (MediaID) 
-);
-
-CREATE TABLE DIGITAL (
-    DigitalID VARCHAR (30) NOT NULL,
-    License   VARCHAR (30) NOT NULL,
-    PRIMARY KEY (
-        DigitalID
-    ),
-    FOREIGN KEY (
-        DigitalID
-    )
-    REFERENCES MEDIA (MediaID) 
+    Type        VARCHAR (30) NOT NULL
 );
 
 CREATE TABLE MOVIES (
-    MovieID  VARCHAR (30) NOT NULL,
-    Length   TIME         NOT NULL,
-    Rating   FLOAT (53)   NOT NULL,
-    Actor    VARCHAR (30) NOT NULL,
-    Director VARCHAR (30) NOT NULL,
+    MovieID  INTEGER    NOT NULL,
+    Length   TIME       NOT NULL,
+    Rating   FLOAT (53) NOT NULL,
+    Actor    INTEGER    NOT NULL,
+    Director INTEGER    NOT NULL,
     PRIMARY KEY (
         MovieID
     ),
@@ -112,18 +85,18 @@ CREATE TABLE MOVIES (
     FOREIGN KEY (
         Actor
     )
-    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE, 
+    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE,
     FOREIGN KEY (
         Director
     )
-    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE 
+    REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE
 );
 
 CREATE TABLE TRACKS (
-    TrackID VARCHAR (30) NOT NULL,
-    Lenght  TIME         NOT NULL,
-    AlbumID VARCHAR (30),
-    Artist  VARCHAR (30) NOT NULL,
+    TrackID    INTEGER      NOT NULL,
+    Lenght     TIME         NOT NULL,
+    AlbumTitle VARCHAR (30),
+    Artist     INTEGER      NOT NULL,
     PRIMARY KEY (
         TrackID
     ),
@@ -132,26 +105,15 @@ CREATE TABLE TRACKS (
     )
     REFERENCES MEDIA (MediaID),
     FOREIGN KEY (
-        AlbumID
-    )
-    REFERENCES ALBUMS (AlbumID),
-    FOREIGN KEY (
         Artist
     )
     REFERENCES PEOPLE (PersonID) ON UPDATE CASCADE
 );
 
-CREATE TABLE ALBUMS (
-    AlbumID VARCHAR (30) NOT NULL,
-    Lenght  TIME         NOT NULL,
-    PRIMARY KEY (
-        AlbumID
-    )
-);
 
 CREATE TABLE BOOKS (
-    BookID VARCHAR (30) NOT NULL,
-    Author VARCHAR (10) NOT NULL,
+    BookID INTEGER NOT NULL,
+    Author INTEGER NOT NULL,
     PRIMARY KEY (
         BookID
     ),
@@ -166,8 +128,8 @@ CREATE TABLE BOOKS (
 );
 
 CREATE TABLE PRINTED (
-    PrintID    VARCHAR (30) NOT NULL,
-    NumofPages INT          NOT NULL,
+    PrintID    INTEGER NOT NULL,
+    NumofPages INT     NOT NULL,
     PRIMARY KEY (
         PrintID
     ),
@@ -178,8 +140,8 @@ CREATE TABLE PRINTED (
 );
 
 CREATE TABLE AUDIOBOOK (
-    AudioID  VARCHAR (30) NOT NULL,
-    Duration TIME         NOT NULL,
+    AudioID  INTEGER NOT NULL,
+    Duration TIME    NOT NULL,
     PRIMARY KEY (
         AudioID
     ),
@@ -190,18 +152,13 @@ CREATE TABLE AUDIOBOOK (
 );
 
 CREATE TABLE PEOPLE (
-    PersonID VARCHAR (10) NOT NULL,
+    PersonID INTEGER      PRIMARY KEY,
     Fname    VARCHAR (15) NOT NULL,
-    Lname    VARCHAR (15) NOT NULL,
-    Bday     DATE,
-    Role     VARCHAR (15),
-    PRIMARY KEY (
-        PersonID
-    )
+    Lname    VARCHAR (15) NOT NULL
 );
 
 CREATE TABLE MEDIABORROWED (
-    MediaID        VARCHAR (30) NOT NULL,
+    MediaID        INTEGER,
     CheckedOutBy   VARCHAR (30) NOT NULL,
     DueDate        DATE         NOT NULL,
     CheckedOutDate DATE         NOT NULL,
@@ -219,7 +176,7 @@ CREATE TABLE MEDIABORROWED (
 );
 
 CREATE TABLE MEDIABOUGHT (
-    MediaID         VARCHAR (30) NOT NULL,
+    MediaID         INTEGER,
     PurchasedBy     VARCHAR (30) NOT NULL,
     CopiesPurchased INT          NOT NULL,
     ArrivalDate     DATE         NOT NULL,
