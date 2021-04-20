@@ -316,7 +316,7 @@ public class Database {
         String query, insert, values;
         String artistFname, artistLname, directorFname, directorLname, actorFname, actorLname, authorFname, authorLname,
                 title, date, genre, length, inAlbum, albumTitle = null, bookType, bookLength = null, moreActors = "y";
-        int artistPersonID, directorPersonID, actorPersonID, authorPersonID, MediaID = 0, pages;
+        int artistPersonID, directorPersonID, actorPersonID, authorPersonID, MediaID = 0, pages, chapters;
         float rating;
 
         switch (num) {
@@ -448,6 +448,9 @@ public class Database {
                 authorFname = in.nextLine();
                 System.out.println("Enter Author Last Name");
                 authorLname = in.nextLine();
+                System.out.println("Enter number of chapters");
+                chapters = in.nextInt();
+                in.nextLine();
                 System.out.println("Is the Book printed or digital (p/d)?");
                 bookType = in.nextLine();
 
@@ -459,11 +462,12 @@ public class Database {
 
                 // Add Book
                 insert = "INSERT INTO BOOKS ";
-                values = "VALUES (?, ?);";
+                values = "VALUES (?, ?, ?);";
                 query = insert + values;
                 statement = conn.prepareStatement(query);
                 statement.setInt(1, MediaID);
                 statement.setInt(2, authorPersonID);
+                statement.setInt(3, chapters);
                 statement.executeUpdate();
 
                 // Add either Printed or AudioBook
@@ -549,9 +553,10 @@ public class Database {
 
     public static void editItem(Connection conn) throws SQLException {
 
-        System.out.println("Select Option:\n");
-        System.out.println("\t1. Add");
-        System.out.println("\t2. Edit");
+        System.out.println("Type of item to edit:\n");
+        System.out.println("\t1. Track");
+        System.out.println("\t2. Movie");
+        System.out.println("\t2. Book");
 
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
@@ -565,42 +570,9 @@ public class Database {
         switch(num) {
 
             case 1:
-                System.out.println("Enter person first name");
-                fname = in.nextLine();
-                System.out.println("Enter person last name:");
-                lname = in.nextLine();
-                System.out.println("Enter person birthday (YYYY-MM-DD):");
-                bday = in.nextLine();
-
-                checkOrAddPerson(conn, fname, lname, bday);
-                break;
 
             case 2:
-                System.out.println("Enter person first name to update:");
-                fname = in.nextLine();
-                System.out.println("Enter person last name to update:");
-                lname = in.nextLine();
 
-                MediaID = checkOrAddPerson(conn, fname, lname, "NULL");
-                System.out.println("Enter new first name:");
-                fname = in.nextLine();
-                System.out.println("Enter new last name:");
-                lname = in.nextLine();
-                System.out.println("Enter new bday:");
-                bday = in.nextLine();
-
-                update = "UPDATE PEOPLE ";
-                set = "SET fname = ?, lname = ?, bday = ? ";
-                where = "WHERE PersonID = ?";
-                query = update + set + where;
-
-                statement = conn.prepareStatement(query);
-                statement.setString(1, fname);
-                statement.setString(2, lname);
-                statement.setString(3, bday);
-                statement.setInt(4, MediaID);
-                statement.executeUpdate();
-                statement.close();
         }
     }
 
